@@ -4,8 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
+    @vite([
+        'resources/css/freomwrok.css',
+        'resources/css/mastr.css'
+        ])
+
 </head>
-<body>
+
+ <body>
 <form action="{{ url('login') }}" method="POST">
     @csrf
     <label for="email">Email:</label>
@@ -14,10 +20,11 @@
     <label for="password">Password:</label>
     <input type="password" id="password" name="password" required>
     <br>
-    <!-- <br>
+   
+    <button type="submit">Login</button>
+ </form>
+</body> 
+</html>   <!-- <br>
     <label for="phons">phons:</label>
     <input type="phons" id="phons" name="phons" required>
     <br> -->
-    <button type="submit">Login</button>
-</body>
-</html>

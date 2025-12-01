@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 use Illuminate\Http\Request;
 
@@ -42,10 +43,15 @@ class UsersController extends Controller
             'password' => bcrypt($vdata['password']),
             'address' => $vdata['address'],
         ]);
-             return response()->json([
-                'message' => 'User registered successfully',
-                "user" => $user,
-            ], 201);
+        
+        Auth::login($user); //  تسجيل دخول بعد التسجيل مباشرة
+
+        return redirect('dashboard');
+
+            //  return response()->json([
+            //     'message' => 'User registered successfully',
+            //     "user" => $user,
+            // ], 201);
      }
       public function login(Request $request)
     {
@@ -58,7 +64,6 @@ class UsersController extends Controller
             return redirect('dashboard');
         }else{
             return redirect('regastr');
-
         }
 
         return back()->withErrors(['message' => 'Invalid credentials']);
@@ -67,8 +72,19 @@ class UsersController extends Controller
     {
         return view('login');
     }
-    public function dashboard(){
-        return view("dashboard");
-    }
+   public function dashboard(){
+
+       $user = auth()->user();   
+
+    $hour = Carbon::now()->hour;
+    $greeting = $hour < 12 ? 'صباح الخير' : 'مساء الخير';
+
+    return view("dashboard", compact('user', 'greeting'));
+
+
+    // $user = auth()->user();   
+    // return view("dashboard", compact('user'));
+}
+
         
 }

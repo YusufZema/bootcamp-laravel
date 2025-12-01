@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>regastr</title>
+    @vite([
+        'resources/css/freomwrok.css',
+        'resources/css/regastr.css'
+        ])
 </head>
-<body>
    <body>
     <div class="container">
         <h1>تسجيل مستخدم جديد</h1>
@@ -36,6 +39,5 @@
             <button type="submit">تسجيل</button>
         </form>
     </div>
-</body>
 </body>
 </html>
