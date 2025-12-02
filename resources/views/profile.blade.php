@@ -4,20 +4,142 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+     @vite([
+        'resources/css/freomwrok.css',
+        'resources/css/dashboard.css',
+        'resources/css/Profile.css',
+        ])
 </head>
 <body>
-    <h1>عرض</h1>
-    <form action="{{ url('profile') }}" method="POST">
-    @csrf
+    <div class="page  d-flex">
+    <div class="sidebar p-relative p-20 bg-white">
+        <h3 class="text text-c mt-0 p-relative">Hyrmas</h3>
+            <ul>
+                <li>
+                <a class=" d-flex align-center fs-14 c-black rad-6 p-10" href="./hyrmas.html">
+                    <i class="fa-regular fa-chart-bar fa-fw"></i>
+                    <span>Dashboard</span>
+                </a>
+                </li>
+                <li>
+                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="settings.html">
+                    <i class="fa-solid fa-gear fa-fw"></i>
+                    <span>Settings</span>
+                </a>
+                </li>
+                <li>
+                <a class="active d-flex align-center fs-14 c-black rad-6 p-10" href="profile.html">
+                    <i class="fa-regular fa-user fa-fw"></i>
+                    <span>Profile</span>
+                </a>
+                </li>
+                <li>
+                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="projects.html">
+                    <i class="fa-solid fa-diagram-project fa-fw"></i>
+                    <span>Projects</span>
+                </a>
+                </li>
+                <li>
+                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="courses.html">
+                    <i class="fa-solid fa-graduation-cap fa-fw"></i>
+                    <span>Courses</span>
+                </a>
+                </li>
+                <li>
+                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="friends.html">
+                    <i class="fa-regular fa-circle-user fa-fw"></i>
+                    <span>Friends</span>
+                </a>
+                </li>
+                <li>
+                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="files.html">
+                    <i class="fa-regular fa-file fa-fw"></i>
+                    <span>Files</span>
+                </a>
+                </li>
+                <li>
+                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="plans.html">
+                    <i class="fa-regular fa-credit-card fa-fw"></i>
+                    <span>Plans</span>
+                </a>
+                </li>
+                <li>
+                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="https://github.com/">
+                  <i class="fa-brands fa-github-alt"></i>
+                    <span>GitHub</span>
+                </a>
+                </li>
+            </ul>
+    </div>
+    <div class="content w-full"> 
+    <!-- Start Head -->
+    <div class="head bg-white p-15 between-flex">
+        <d iv class="search p-relative">
+            <input  class="p-10" type="search" placeholder="Type A Keyword" />
+            
+        </d>
+        <div class="icons d-flex align-center">
+            <span class="notification p-relative">
+                <i class="fa-solid fa-pencil"></i>
+            </span>
+            <img src="../img/cat-family-job-board.svg" alt="" />
+        </div>
+        </div>
+        <!-- End Head -->
+          <div class="content w-full">
 
-    <label>الاسم الكامل</label><br>
-    <input type="text" name="full_name"><br><br>
+                <article class="card" role="region" aria-labelledby="profileTitle">
+                    <aside class="side txt-c p-20">
+                        <img class="avatar rad-half" src="../img/IMG_1191.jpg" alt="الصورة الشخصية" loading="lazy" width="256" height="256" />
+                        <h1 id="profileTitle" class="mt-15"> {{ $profile->full_name ?? 'Not set' }}</h1>
+                        <div class="actions mt-15">
+                            <div class="center-flex">
+                               <button type="button" class="button1">تعديل </button>
+                            </div>
+                        </div>
 
-    <label>نبذة</label><br>
-    <textarea name="about"></textarea><br><br>
+                        <footer>
+                            <time datetime="2025-10-03">آخر تحديث: 3 أكتوبر 2025</time>
+                        </footer>
+                    </aside>
 
-    <button type="submit">إنشاء</button>
-</form>
+                    <main class="main">
+                        <section class="about">
+                            <h2>نبذة</h2>
+                            <p class="bio">{{ $profile->about ?? 'No information yet' }}</p>
+                        </section>
 
+                        <section class="contact mt-18">
+                            <h2>معلومات</h2>
+                            <div class="info">
+                                <div class="field">
+                                    <label>البريد الإلكتروني</label>
+                                    <div>you@example.com</div>
+                                </div>
+                                <div class="field">
+                                    <label>الهاتف</label>
+                                    <div>+966 5X XXX XXXX</div>
+                                </div>
+
+                                <div class="field">
+                                    <label>الموقع</label>
+                                    <div>مكه, السعودية</div>
+                                </div>
+                                <div class="field">
+                                    <label>المهنة</label>
+                                    <div>مطوّر واجهات</div>
+                                </div>
+                            </div>
+                        </section>
+                    </main>
+                </article>
+            </div>
+        </div>      
+    </div>
+    </div>
 </body>
 </html>
+<!-- <h1>Profile Page</h1>
+
+<p><strong>Full Name:</strong> {{ $profile->full_name ?? 'Not set' }}</p>
+<p><strong>About:</strong> {{ $profile->about ?? 'No information yet' }}</p> -->

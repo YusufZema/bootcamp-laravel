@@ -9,30 +9,34 @@ class ProfileController extends Controller
 {
     //
     public function index(){
-        return view("profile");
+        return view("creytprofie");
     }
 
-      public function store(Request $request)
-    {
-        $data = $request->validate([
-            'full_name' => 'required|string',
-            'about' => 'nullable|string',
-        ]);
+ public function store(Request $request)
+{
+    $data = $request->validate([
+        'full_name' => 'required|string',
+        'about' => 'nullable|string',
+    ]);
 
-        // $all = Profile::create([
-        //     "full_name" => $data ["full_name"],
-        //     "about" => $data ["about"]
-        // ]);
-        auth()->user()->profile()->create($data);
+    auth()->user()->profile()->updateOrCreate(
+        ['user_id' => auth()->id()], // الشرط للبحث عن بروفايل موجود
+        $data // البيانات للتحديث أو الإنشاء
+    );
 
-        return redirect()->back()->with('message', 'Profile created!');
+    return redirect()->route('profile.show')->with('message', 'Profile updated!');
+}
 
 
-         //  return response()->json([
-            //     'message' => 'User registered successfully',
-            //     "user" => $user,
-            // ], 201);
-    }
+
+    public function show()
+{
+    $user = auth()->user(); // جلب المستخدم الحالي
+    $profile = $user->profile; // جلب بيانات البروفايل المرتبطة به
+
+    return view('profile', compact('user', 'profile'));
+}
+
 
 }
 

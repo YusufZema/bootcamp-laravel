@@ -110,9 +110,36 @@
                 <div>4 <span class="d-block c-grey fs-14 mt-10">Projects</span></div>
                 <div>$8500 <span class="d-block c-grey fs-14 mt-10">Earned</span></div>
                 </div>
-                <a href="Profile.html" class="visit d-block fs-14 bg-blue c-white w-fit btn-shape">Profile</a>
+              <a href="{{ route('profile.index') }}" class="visit d-block fs-14 bg-blue c-white w-fit btn-shape">Profile</a>
             </div>
          </div>
      </div>
+
+
+
+
+
+
+     <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let hour = new Date().getHours();
+
+        fetch("{{ route('user.time') }}", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-TOKEN": "{{ csrf_token() }}",
+            },
+            body: JSON.stringify({ hour: hour })
+        }).then(() => {
+           setTimeout(() => {
+        location.reload();
+    }, 3600000); // 3600000 = ساعة واحدة (60 دقيقة)
+});
+
+    });
+</script>
+
+
 </body>
 </html>
