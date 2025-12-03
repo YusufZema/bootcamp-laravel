@@ -1,0 +1,81 @@
+body {
+    font-family: "Tajawal", sans-serif;
+    background: #f5f7fa;
+    padding: 20px;
+    direction: rtl;
+    text-align: right;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+textarea {
+    width: 300px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    border-color: #3498db;
+}
+
+button {
+    padding: 8px 16px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* تصميم القائمة */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: white;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-right: 4px solid #3498db;
+}
+
+li form {
+    margin: 0;
+}
+
+li button {
+    background: #2ecc71;
+}
+
+li button:hover {
+    background: #27ae60;
+}
+
+li button[type="submit"]:last-of-type {
+    background: #e74c3c;
+}
+
+li button[type="submit"]:last-of-type:hover {
+    background: #c0392b;
+}

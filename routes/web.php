@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\taskController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -28,6 +30,9 @@ Route::post("login", [UsersController::class , "login"]);
 //     Route::post('/profile', [ProfileController::class, 'store'])->name("profile.store");
 // });
 
+//هاذا الكود من نوف بوست لي الوقت في المتصفح
+Route::get('/dashboard', [UsersController::class, 'dashboard'])->name('dashboard');
+Route::post('/user-time', [UsersController::class, 'storeTime'])->name('user.time');
 
 // عرض صفحة إنشاء البروفايل
 Route::get('/create-profile', [ProfileController::class, 'index'])->name('profile.create');
@@ -40,6 +45,10 @@ Route::post('/profile', [ProfileController::class, 'store'])->name('profile.stor
 
 
 
-Route::get('/dashboard', [UsersController::class, 'dashboard'])->name('dashboard');
-Route::post('/user-time', [UsersController::class, 'storeTime'])->name('user.time');
+Route::middleware('auth')->group(function() {
+    Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');
+    Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');
+    Route::patch('/tasks/{task}', [TaskController::class, 'update'])->name('tasks.update');
+    Route::delete('/tasks/{task}', [TaskController::class, 'destroy'])->name('tasks.destroy');
+});
 

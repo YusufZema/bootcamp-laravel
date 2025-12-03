@@ -10,7 +10,7 @@
     @csrf
     <input type="text" name="full_name" placeholder="Full Name" required>
     <textarea name="about" placeholder="About"></textarea>
-    <button type="submit">Save Profile</button>
+    <button type="submit">ارسال </button>
 </form>
 
 </body>

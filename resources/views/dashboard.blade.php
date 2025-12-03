@@ -110,7 +110,6 @@
                 <div>4 <span class="d-block c-grey fs-14 mt-10">Projects</span></div>
                 <div>$8500 <span class="d-block c-grey fs-14 mt-10">Earned</span></div>
                 </div>
-              <a href="{{ route('profile.index') }}" class="visit d-block fs-14 bg-blue c-white w-fit btn-shape">Profile</a>
             </div>
          </div>
      </div>
