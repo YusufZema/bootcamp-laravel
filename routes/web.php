@@ -33,7 +33,7 @@ Route::post("login", [UsersController::class , "login"]);
 //هاذا الكود من نوف بوست لي الوقت في المتصفح
 Route::get('/dashboard', [UsersController::class, 'dashboard'])->name('dashboard');
 Route::post('/user-time', [UsersController::class, 'storeTime'])->name('user.time');
-
+// تحريب
 // عرض صفحة إنشاء البروفايل
 Route::get('/create-profile', [ProfileController::class, 'index'])->name('profile.create');
 // عرض صفحة البروفايل بعد الحفظ
