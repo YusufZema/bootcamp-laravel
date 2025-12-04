@@ -24,7 +24,7 @@
         <h3 class="text text-c mt-0 p-relative">Hyrmas</h3>
             <ul>
                 <li>
-                <a class="active d-flex align-center fs-14 c-black rad-6 p-10" href="index.html">
+                <a class="active d-flex align-center fs-14 c-black rad-6 p-10" href="dashboard">
                     <i class="fa-regular fa-chart-bar fa-fw"></i>
                     <span>Dashboard</span>
                 </a>
@@ -36,7 +36,7 @@
                 </a>
                 </li>
                 <li>
-                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="./Profile.html">
+                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="profile">
                     <i class="fa-regular fa-user fa-fw"></i>
                     <span>Profile</span>
                 </a>
@@ -109,6 +109,7 @@
                 <div> {{ $user->name }} <span class="d-block c-grey fs-14 mt-10">Developer</span></div>
                 <div>4 <span class="d-block c-grey fs-14 mt-10">Projects</span></div>
                 <div>$8500 <span class="d-block c-grey fs-14 mt-10">Earned</span></div>
+
                 </div>
             </div>
          </div>

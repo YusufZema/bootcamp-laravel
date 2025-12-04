@@ -3,34 +3,38 @@ body {
     background: #f5f7fa;
     padding: 20px;
     direction: rtl;
-    text-align: right;
 }
 
-h1 {
+.quick-draft {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.quick-draft h1,
+.quick-draft h2 {
     color: #333;
-    margin-bottom: 20px;
 }
 
-form {
-    margin-bottom: 20px;
-}
-
-input[type="text"],
-textarea {
-    width: 300px;
+.quick-draft form input[type="text"],
+.quick-draft form textarea {
+    width: 100%;
     padding: 10px;
     margin-bottom: 10px;
     border: 2px solid #ddd;
-    border-radius: 8px;
+    border-radius: 6px;
     outline: none;
 }
 
-input[type="text"]:focus,
-textarea:focus {
+.quick-draft form input[type="text"]:focus,
+.quick-draft form textarea:focus {
     border-color: #3498db;
 }
 
-button {
+.quick-draft form button {
     padding: 8px 16px;
     background-color: #3498db;
     color: white;
@@ -39,43 +43,52 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+.quick-draft form button:hover {
     background-color: #2980b9;
 }
 
-/* تصميم القائمة */
-ul {
+ul.task-list {
     list-style: none;
     padding: 0;
+    margin-top: 20px;
 }
 
-li {
-    background: white;
+ul.task-list li {
+    background: #f9f9f9;
+    border-left: 5px solid #3498db;
     padding: 12px;
     margin-bottom: 10px;
-    border-radius: 8px;
+    border-radius: 6px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 10px;
-    border-right: 4px solid #3498db;
 }
 
-li form {
-    margin: 0;
+.task-actions form {
+    display: inline;
 }
 
-li button {
-    background: #2ecc71;
+.task-actions button {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    color: white;
 }
 
-li button:hover {
-    background: #27ae60;
+.task-actions .complete-btn {
+    background-color: #2ecc71;
 }
 
-li button[type="submit"]:last-of-type {
-    background: #e74c3c;
+.task-actions .complete-btn:hover {
+    background-color: #27ae60;
 }
 
-li button[type="submit"]:last-of-type:hover {
-    background: #c0392b;
+.task-actions .delete-btn {
+    background-color: #e74c3c;
+}
+
+.task-actions .delete-btn:hover {
+    background-color: #c0392b;
 }

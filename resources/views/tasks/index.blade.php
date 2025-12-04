@@ -33,7 +33,7 @@
 
         {{ $task->title }}
 
-        <form action="{{ route('tasks.destroy', $task) }}" method="POST" style="display:inline;">
+        <form action="{{ route('tasks.destroy', $task) }}" method="POST" >
             @csrf
             @method('DELETE')
             <button type="submit">حذف</button>
