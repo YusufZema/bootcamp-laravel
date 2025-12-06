@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\taskController;
-
+use App\Http\Controllers\CourseController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -52,3 +52,6 @@ Route::middleware('auth')->group(function() {
     Route::delete('/tasks/{task}', [TaskController::class, 'destroy'])->name('tasks.destroy');
 });
 
+
+///////Courses
+Route::get('/courses', [CourseController::class, 'courses'])->name('courses');

@@ -29,7 +29,11 @@ input {
     border-radius: 5px;
     margin-bottom: 15px;
 }
-
+a{
+    text-decoration: none;
+    color: #007bff;
+    font-size: 14px;
+}
 button {
     width: 100%;
     padding: 10px;

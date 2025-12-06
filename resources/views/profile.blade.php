@@ -16,7 +16,7 @@
         <h3 class="text text-c mt-0 p-relative">Hyrmas</h3>
             <ul>
                 <li>
-                <a class=" d-flex align-center fs-14 c-black rad-6 p-10" href="./hyrmas.html">
+                <a class=" d-flex align-center fs-14 c-black rad-6 p-10" href="dashboard">
                     <i class="fa-regular fa-chart-bar fa-fw"></i>
                     <span>Dashboard</span>
                 </a>
@@ -91,7 +91,7 @@
                 <article class="card" role="region" aria-labelledby="profileTitle">
                     <aside class="side txt-c p-20">
                         <img class="avatar rad-half" src="../img/IMG_1191.jpg" alt="الصورة الشخصية" loading="lazy" width="256" height="256" />
-                        <h1 id="profileTitle" class="mt-15"> {{ $profile->full_name ?? 'Not set' }}</h1>
+                        <h1 id="profileTitle" class="mt-15"> {{ $user->name }}</h1>
                         <div class="actions mt-15">
                             <div class="center-flex">
                                <button type="button" class="button1">تعديل </button>
@@ -114,20 +114,20 @@
                             <div class="info">
                                 <div class="field">
                                     <label>البريد الإلكتروني</label>
-                                    <div>you@example.com</div>
+                                    <div>{{ $user->email }} </div>
                                 </div>
                                 <div class="field">
                                     <label>الهاتف</label>
-                                    <div>+966 5X XXX XXXX</div>
+                                   <div>{{ $user->phons }} </div>
                                 </div>
 
                                 <div class="field">
                                     <label>الموقع</label>
-                                    <div>مكه, السعودية</div>
+                                     <div>{{ $user->address }} </div>
                                 </div>
                                 <div class="field">
                                     <label>المهنة</label>
-                                    <div>مطوّر واجهات</div>
+                                    <div>{{ $user->job }} </div>
                                 </div>
                             </div>
                         </section>

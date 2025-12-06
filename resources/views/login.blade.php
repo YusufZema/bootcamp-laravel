@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
     @vite([
-        'resources/css/freomwrok.css',
+       
         'resources/css/mastr.css'
         ])
 
 </head>
 
  <body>
+
 <form action="{{ url('login') }}" method="POST">
     @csrf
     <label for="email">Email:</label>
@@ -22,6 +23,11 @@
     <br>
    
     <button type="submit">Login</button>
+
+    @if ($errors->has('login_error'))
+    <p style="color:red;">{{ $errors->first('login_error') }}</p>
+    @endif
+   <a href="regastr"><h1>تسجيل المستخدم</h1></a>
  </form>
 </body> 
 </html>   <!-- <br>

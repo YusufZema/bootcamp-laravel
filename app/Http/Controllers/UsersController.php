@@ -28,11 +28,11 @@ class UsersController extends Controller
 
         //التحقق ما اذا كان البريد الإلكتروني موجودًا سابقان
        
-        if (isset($vdata['email']) && User::where('email', $vdata['email'])->exists()) {
-            return response()->json([
-                'message' => 'The email has already been taken.', //رسال الخطأاذا كان موجود 
-            ], 422);
-        }
+        // if (isset($vdata['email']) && User::where('email', $vdata['email'])->exists()) {
+        //     return response()->json([
+        //         'message' => 'The email has already been taken.', //رسال الخطأاذا كان موجود 
+        //     ], 422);
+        // }
         
 
         // حفظ المستخدم في قاعدة البيانات
@@ -53,21 +53,35 @@ class UsersController extends Controller
             //     "user" => $user,
             // ], 201);
      }
-      public function login(Request $request)
-    {
-        $data = $request->validate([
-            'email' => 'required|email',
-            'password' => 'required'
-        ]);
 
-        if (Auth::attempt($data)) {
-            return redirect('dashboard');
-        }else{
-            return redirect('regastr');
+     public function login(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        if (!auth()->attempt($credentials)) {
+            return back()->withErrors([
+                'login_error' => 'البريد أو كلمة المرور غير صحيحة!'
+            ]);
         }
 
-        return back()->withErrors(['message' => 'Invalid credentials']);
+        return redirect()->route('dashboard');
     }
+
+    //   public function login(Request $request)
+    // {
+    //     $data = $request->validate([
+    //         'email' => 'required|email',
+    //         'password' => 'required'
+    //     ]);
+        
+    //     if (Auth::attempt($data)) {
+    //         return redirect('dashboard');
+    //     }else{
+    //         return redirect('regastr');
+    //     }
+
+    //     return back()->withErrors(['message' => 'Invalid credentials']);
+    // }
         public function login_view()
     {
         return view('login');
