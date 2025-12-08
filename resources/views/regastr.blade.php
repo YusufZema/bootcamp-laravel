@@ -6,6 +6,7 @@
     <title>regastr</title>
     @vite([
         'resources/css/freomwrok.css',
+        'resources/css/app.css',
         'resources/css/regastr.css'
         ])
 </head>
@@ -13,6 +14,9 @@
     <div class="container">
         <h1>تسجيل مستخدم جديد</h1>
 
+         @if ($errors->has('regastr_error'))
+    <p style="color:red;">{{ $errors->first('regastr_error') }}</p>
+    @endif
         <form action="{{ url('regastr') }}" method="POST" class="register-form">
             @csrf
 

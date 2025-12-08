@@ -22,53 +22,42 @@
                 </a>
                 </li>
                 <li>
-                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="settings.html">
+                 <li>
+                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="tasks">
                     <i class="fa-solid fa-gear fa-fw"></i>
-                    <span>Settings</span>
+                    <span>tasks</span>
                 </a>
                 </li>
                 <li>
-                <a class="active d-flex align-center fs-14 c-black rad-6 p-10" href="profile.html">
+                <a class="active d-flex align-center fs-14 c-black rad-6 p-10" href="profile">
                     <i class="fa-regular fa-user fa-fw"></i>
                     <span>Profile</span>
                 </a>
                 </li>
                 <li>
-                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="projects.html">
+                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="projects">
                     <i class="fa-solid fa-diagram-project fa-fw"></i>
                     <span>Projects</span>
                 </a>
                 </li>
                 <li>
-                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="courses.html">
+                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="courses">
                     <i class="fa-solid fa-graduation-cap fa-fw"></i>
                     <span>Courses</span>
                 </a>
                 </li>
                 <li>
-                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="friends.html">
+                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="friends">
                     <i class="fa-regular fa-circle-user fa-fw"></i>
                     <span>Friends</span>
                 </a>
                 </li>
                 <li>
-                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="files.html">
-                    <i class="fa-regular fa-file fa-fw"></i>
-                    <span>Files</span>
+                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="friends">
+                    <i class="fa-regular fa-circle-user fa-fw"></i>
+                    <span>Settings</span>
                 </a>
-                </li>
-                <li>
-                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="plans.html">
-                    <i class="fa-regular fa-credit-card fa-fw"></i>
-                    <span>Plans</span>
-                </a>
-                </li>
-                <li>
-                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="https://github.com/">
-                  <i class="fa-brands fa-github-alt"></i>
-                    <span>GitHub</span>
-                </a>
-                </li>
+                
             </ul>
     </div>
     <div class="content w-full"> 

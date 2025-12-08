@@ -5,6 +5,7 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\taskController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\FrindsController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -54,4 +55,10 @@ Route::middleware('auth')->group(function() {
 
 
 ///////Courses
-Route::get('/courses', [CourseController::class, 'courses'])->name('courses');
+Route::get('/courses', [CourseController::class, 'index'])->name('courses.index');
+
+
+
+
+///frinds
+Route::get('/friends', [FrindsController::class, 'friends'])->name('friends.index');

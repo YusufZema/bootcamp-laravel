@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+     @vite([
+        'resources/css/freomwrok.css',
+        'resources/css/dashboard.css',
+        'resources/css/main_dashboard.css'
+        ])
 </head>
 <body>
     <div class="page  d-flex">
@@ -11,19 +16,19 @@
         <h3 class="text text-c mt-0 p-relative">Hyrmas</h3>
             <ul>
                 <li>
-                <a class=" d-flex align-center fs-14 c-black rad-6 p-10" href="hyrmas.html">
+                <a class=" d-flex align-center fs-14 c-black rad-6 p-10" href="dashboard">
                     <i class="fa-regular fa-chart-bar fa-fw"></i>
                     <span>Dashboard</span>
                 </a>
                 </li>
-                <li>
-                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="settings.html">
+                 <li>
+                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="tasks">
                     <i class="fa-solid fa-gear fa-fw"></i>
-                    <span>Settings</span>
+                    <span>tasks</span>
                 </a>
                 </li>
                 <li>
-                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="profile.html">
+                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="profile">
                     <i class="fa-regular fa-user fa-fw"></i>
                     <span>Profile</span>
                 </a>
@@ -41,27 +46,15 @@
                 </a>
                 </li>
                 <li>
-                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="friends.html">
+                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="friends">
                     <i class="fa-regular fa-circle-user fa-fw"></i>
                     <span>Friends</span>
                 </a>
                 </li>
                 <li>
-                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="files.html">
-                    <i class="fa-regular fa-file fa-fw"></i>
-                    <span>Files</span>
-                </a>
-                </li>
-                <li>
-                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="plans.html">
-                    <i class="fa-regular fa-credit-card fa-fw"></i>
-                    <span>Plans</span>
-                </a>
-                </li>
-                <li>
-                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="https://github.com/">
-                  <i class="fa-brands fa-github-alt"></i>
-                    <span>GitHub</span>
+                 <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="settings.html">
+                    <i class="fa-solid fa-gear fa-fw"></i>
+                    <span>Settings</span>
                 </a>
                 </li>
             </ul>

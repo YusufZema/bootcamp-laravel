@@ -6,6 +6,9 @@
     --red-color: #f44336;
     --grey-color: #888;
   }
+  .twxt-Center {
+    text-align: center;
+  }
   /* Start Box */
   .d-flex {
     display: flex;
