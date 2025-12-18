@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>profile</title>
      @vite([
         'resources/css/freomwrok.css',
         'resources/css/dashboard.css',
@@ -13,7 +13,10 @@
 <body>
     <div class="page  d-flex">
     <div class="sidebar p-relative p-20 bg-white">
-        <h3 class="text text-c mt-0 p-relative">Hyrmas</h3>
+         <div class= "box_hedars ">
+            <img class="hide-mobile w-100" src="logoH.jpg" alt="" />
+            <h3 class="text text-c mt-0 p-relative">Hyrmas</h3>
+        </div>
             <ul>
                 <li>
                 <a class=" d-flex align-center fs-14 c-black rad-6 p-10" href="dashboard">
@@ -72,6 +75,8 @@
                 <i class="fa-solid fa-pencil"></i>
             </span>
             <img src="../img/cat-family-job-board.svg" alt="" />
+             <img class="hide-mobile w-100" src="logoH.jpg" alt="" />
+
         </div>
         </div>
         <!-- End Head -->
@@ -79,7 +84,7 @@
 
                 <article class="card" role="region" aria-labelledby="profileTitle">
                     <aside class="side txt-c p-20">
-                        <img class="avatar rad-half" src="../img/IMG_1191.jpg" alt="الصورة الشخصية" loading="lazy" width="256" height="256" />
+                        <img class="avatar rad-half" src="../imgs/avatar-placeholder-generator-500x500.avif" alt="الصورة الشخصية" loading="lazy" width="256" height="256" />
                         <h1 id="profileTitle" class="mt-15"> {{ $user->name }}</h1>
                         <div class="actions mt-15">
                             <div class="center-flex">

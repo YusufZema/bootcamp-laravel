@@ -13,7 +13,10 @@
 <body>
     <div class="page  d-flex">
     <div class="sidebar p-relative p-20 bg-white">
-        <h3 class="text text-c mt-0 p-relative">Hyrmas</h3>
+         <div class= "box_hedars ">
+            <img class="hide-mobile w-100" src="logoH.jpg" alt="" />
+            <h3 class="text text-c mt-0 p-relative">Hyrmas</h3>
+        </div>
       <ul>
                 <li>
                 <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="dashboard">
@@ -70,6 +73,7 @@
                         <i class="fa-solid fa-graduation-cap"></i>
                     </span>
                     <img src="../img/cat-family-job-board.svg" alt="" />
+                    <img class="hide-mobile w-100" src="logoH.jpg" alt="" />
                 </div>
             </div>
             <!-- End Head -->
@@ -94,6 +98,7 @@
                       <div class="items-center twxt-Center gap-x-6">
                         <img class=" rounded-full outline-1 -outline-offset-1 outline-black/5"  src="{{ asset('imgs/photo_2025-12-08_20-51-28.jpg') }}" alt="logo">
                         <div class="">
+                          
                           <h3 class="text-base/7 font-semibold tracking-tight text-gray-900">Michael Foster</h3>
                           <p class="text-sm/6 font-semibold text-indigo-600">Co-Founder / CTO</p>
                         </div>
@@ -138,6 +143,36 @@
                   </ul>
                 </div>
               </div>
+
+            <h1>أصدقائي</h1>
+
+@if($friends->count() > 0)
+    <ul>
+    @foreach($friends as $friend)
+        <li>{{ $friend->name }} - {{ $friend->email }}</li>
+    @endforeach
+    </ul>
+@else
+    <p>ليس لديك أصدقاء بعد.</p>
+@endif
+
+<hr>
+
+<h2>أضف أصدقاء جدد</h2>
+
+<ul>
+@foreach($otherUsers as $other)
+    <li>
+        {{ $other->name }} - {{ $other->email }}
+        @if(!$friends->contains($other->id))
+            <a href="{{ route('friends.add', $other->id) }}" style="color:blue;">إضافة صديق</a>
+        @else
+            <span style="color:green;">مضاف بالفعل</span>
+        @endif
+    </li>
+@endforeach
+</ul>
+
 
         </div>
     </div>

@@ -87,6 +87,18 @@ class UsersController extends Controller
         return view('login');
     }
 
+public function logout(Request $request)
+{
+    auth()->logout(); // تسجيل خروج المستخدم
+
+    $request->session()->invalidate(); // إلغاء الجلسة
+
+    return redirect('/login'); // إعادة التوجيه لصفحة تسجيل الدخول
+}
+public function logout_view(){
+    return view('settings');
+}
+
 
 
 

@@ -13,7 +13,10 @@
 <body>
     <div class="page  d-flex">
     <div class="sidebar p-relative p-20 bg-white">
-        <h3 class="text text-c mt-0 p-relative">Hyrmas</h3>
+        <div class= "box_hedars ">
+            <img class="hide-mobile w-100" src="logoH.jpg" alt="" />
+            <h3 class="text text-c mt-0 p-relative">Hyrmas</h3>
+        </div>
             <ul>
                 <li>
                 <a class="active d-flex align-center fs-14 c-black rad-6 p-10" href="dashboard">
@@ -52,16 +55,11 @@
                 </a>
                 </li>
                 <li>
-                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="Settings">
+                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="logout">
                     <i class="fa-regular fa-circle-user fa-fw"></i>
                     <span>Settings</span>
                 </a>
-                <!-- </li>
-                 <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="settings.html">
-                    <i class="fa-solid fa-gear fa-fw"></i>
-                    <span>Settings</span>
-                </a>
-                </li> -->
+              </li>
             </ul>
     </div>
         <div class="content w-full"> 
@@ -75,11 +73,18 @@
                         <i class="fa-solid fa-graduation-cap"></i>
                     </span>
                     <img src="{{ asset('img/cat-family-job-board.svg') }}" alt="" />
+                    <img class="hide-mobile w-100" src="logoH.jpg" alt="" />
+
                 </div>
+                <!-- <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit">Logout</button>
+                </form> -->
+
             </div>
             <!-- End Head -->
 
-               <h1 class="p-relative">Dashboard   {{ $greeting }}</h1>
+         <h1 class="p-relative">Dashboard   {{ $greeting }}</h1>
         <div class="wrapper d-grid gap-20">
             <div class="welcome bg-white rad-10 txt-c-mobile block-mobile">
                               <div class="intro p-20 d-flex space-between bg-eee">
@@ -88,7 +93,8 @@
                                     <p class="c-grey mt-5"> {{ $user->name }}</p>
                                 </div>
 
-                                <img class="hide-mobile w-100" src="../img/bg2-2.png" alt="" />
+                                <img class="hide-mobile w-100" src="../img/bg2-2.png" alt="" /> 
+                                 <img class="hide-mobile w-100" src="../img/bg4-2.png" alt="" />
 
                               </div>
                               <div class="body txt-c d-flex p-20 mt-20 mb-20 block-mobile">
