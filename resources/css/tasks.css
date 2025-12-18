@@ -4,7 +4,23 @@ body {
     padding: 20px;
     direction: rtl;
 }
-
+.box_hedars h3{
+    font-weight: 800;
+    font-size: 16px ;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.box_hedars img{
+    width: 100px ;
+    height: auto ;
+    margin-bottom: 10px ;
+    border-radius: 15apx ;
+}
+.box_hedars {
+    text-align: center;
+    display: flex;
+    margin-bottom: 20px ;
+    align-items: center;
+}
 .quick-draft {
     background: #fff;
     padding: 20px;

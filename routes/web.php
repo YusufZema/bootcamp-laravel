@@ -1,11 +1,12 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\taskController;
 use App\Http\Controllers\CourseController;
-use App\Http\Controllers\FrindsController;
+use App\Http\Controllers\AfrindController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -19,6 +20,8 @@ Route::get("dashboard", [UsersController::class , "dashboard"])
     ->middleware("auth");
 Route::get("login", [UsersController::class , "login_view"])->name('login');
 Route::post("login", [UsersController::class , "login"]);
+Route::get("logout", [UsersController::class , "logout_view"])->name('logout.view');
+Route::post('/logout', [UsersController::class, 'logout'])->name('logout');
 
 
 
@@ -61,4 +64,9 @@ Route::get('/courses', [CourseController::class, 'index'])->name('courses.index'
 
 
 ///frinds
-Route::get('/friends', [FrindsController::class, 'friends'])->name('friends.index');
+
+// Route::get('/friends', [AfrindController::class, 'index'])->name('friends');
+Route::middleware('auth')->group(function() {
+    Route::get('/friends', [AfrindController::class, 'index'])->name('friends.index');
+    Route::get('/add-friend/{id}', [AfrindController::class, 'addFriend'])->name('friends.add');
+});

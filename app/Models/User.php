@@ -50,10 +50,22 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-    public function profile()
+//     public function profile()
+// {
+//     return $this->hasOne(Profile::class);
+// }
+
+public function friends()
 {
-    return $this->hasOne(Profile::class);
+    return $this->belongsToMany(
+        User::class,
+        'friends',
+        'user_id',
+        'friend_id'
+    );
 }
+
+
 public function tasks()
 {
     return $this->hasMany(Tasks::class);
