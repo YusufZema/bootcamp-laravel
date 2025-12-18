@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Hermas </title>
     <!-- fil css -->
-    @vite([
-        'resources/css/welcome.css',
-        'resources/css/all.min.css',
-        ])
+
+
+
+        <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
+
     <!-- google font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

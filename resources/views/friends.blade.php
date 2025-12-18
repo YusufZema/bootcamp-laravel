@@ -9,6 +9,9 @@
         'resources/css/freomwrok.css',
         'resources/css/dashboard.css',
 ])
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/freomwrok.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">    
 </head>
 <body>
     <div class="page  d-flex">

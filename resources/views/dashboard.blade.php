@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dashboard</title>
-        @vite([
-        'resources/css/freomwrok.css',
-        'resources/css/dashboard.css',
-        'resources/css/main_dashboard.css'
-        ])
+        
+        
+        <link rel="stylesheet" href="{{ asset('css/freomwrok.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">    
+        <link rel="stylesheet" href="{{ asset('css/main_dashboard.css') }}">    
 </head>
 <body>
     <div class="page  d-flex">
