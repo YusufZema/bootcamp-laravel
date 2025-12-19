@@ -4,11 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>friends</title>
-        @vite([
-        'resources/css/app.css',
-        'resources/css/freomwrok.css',
-        'resources/css/dashboard.css',
-])
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('css/freomwrok.css') }}">
         <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">    
