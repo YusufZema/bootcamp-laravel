@@ -95,9 +95,9 @@ public function logout(Request $request)
 
     return redirect('/login'); // إعادة التوجيه لصفحة تسجيل الدخول
 }
-public function logout_view(){
-    return view('settings');
-}
+// public function logout_view(){
+//     return view('settings');
+// }
 
 
 
