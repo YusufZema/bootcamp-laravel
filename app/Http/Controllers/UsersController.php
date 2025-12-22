@@ -109,6 +109,7 @@ public function logout(Request $request)
 
 
 
+
    public function dashboard()
 {
     $user = auth()->user();
