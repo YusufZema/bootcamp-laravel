@@ -25,19 +25,13 @@
                  <li>
                 <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="tasks">
                     <i class="fa-solid fa-gear fa-fw"></i>
-                    <span>tasks</span>
+                    <span>Tasks</span>
                 </a>
                 </li>
                 <li>
                 <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="profile">
                     <i class="fa-regular fa-user fa-fw"></i>
                     <span>Profile</span>
-                </a>
-                </li>
-                <li>
-                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="projects.html">
-                    <i class="fa-solid fa-diagram-project fa-fw"></i>
-                    <span>Projects</span>
                 </a>
                 </li>
                 <li>

@@ -51,7 +51,7 @@ class UsersController extends Controller
 
         if (!auth()->attempt($credentials)) {
             return back()->withErrors([
-                'login_error' => 'البريد أو كلمة المرور غير صحيحة!'
+                'login_error' => 'the provided credentials do not match our records.',
             ]);
         }
 
@@ -73,7 +73,7 @@ public function logout(Request $request)
     return redirect('/login'); // إعادة التوجيه لصفحة تسجيل الدخول
 }
 public function logout_view(){
-    return view('settings');
+    return view('Settings');
 }
 
 
