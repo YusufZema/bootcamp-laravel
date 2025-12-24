@@ -6,10 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Friend extends Model
 {
-    protected $table = 'friends';
-
-    protected $fillable = [
-        'user_id',
-        'friend_id',
-    ];
+public function friends()
+    {
+        return $this->belongsToMany(
+            User::class,
+            'friends',
+            'user_id',
+            'friend_id'
+        );
+    }
 }

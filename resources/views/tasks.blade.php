@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tasks</title>
-    
-          <link rel="stylesheet" href="{{ asset('css/freomwrok.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/freomwrok.css') }}">
         <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">    
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">  
+        <link rel="stylesheet" href="{{ asset('css/tasks.css') }}">  
 </head>
 <body>
     <div class="page  d-flex">
@@ -54,7 +53,7 @@
                 </a>
                 </li>
                 <li>
-                 <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="settings.html">
+                 <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="logout">
                     <i class="fa-solid fa-gear fa-fw"></i>
                     <span>Settings</span>
                 </a>
@@ -65,7 +64,7 @@
             <!-- Start Head -->
             <div class="head bg-white p-15 between-flex">
                 <div class="search p-relative">
-                    <input class="p-10" type="search" placeholder="بحث عن دورة" />
+                    <input class="p-10" type="search" placeholder="Search courses" />
                 </div>
                 <div class="icons d-flex align-center">
                     <span class="notification p-relative">
@@ -77,96 +76,73 @@
                 </div>
             </div>
             <!-- End Head -->
+<!-- جدول التاسكات -->
 
-            <ul>
-  <div class="overflow-x-auto mt-6">
-    <table class="min-w-full bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
-        <thead class="bg-gray-100 border-b">
-            <tr>
-                <th class="px-4 py-3 text-right font-semibold text-gray-700">الحالة</th>
-                <th class="px-4 py-3 text-right font-semibold text-gray-700">العنوان</th>
-                <th class="px-4 py-3 text-right font-semibold text-gray-700">الوصف</th>
-                <th class="px-4 py-3 text-right font-semibold text-gray-700">تحديث</th>
-                <th class="px-4 py-3  font-semibold text-gray-700">حذف</th>
-            </tr>
-        </thead>
+<div class="table-wrapper">
+    <a href="#">
+        <h1>Tasks:</h1>
+    </a>
+    <table class="custom-table">
 
-        <tbody>
-            @foreach($tasks as $task)
-                <tr class="border-b hover:bg-gray-50 transition">
-                    <td class="px-4 py-3 text-right  text-lg">
-                        {{ $task->completed ? '✔' : '❌' }}
-                    </td>
+     <thead>
+    <tr>
+        <th>Status</th>
+        <th>Task Title</th>
+        <th>Description</th>
+        <th style="text-align:center">Actions</th>
+        <th style="text-align:center">Remove</th>
+    </tr>
+</thead>
 
-                    <td class="px-4 py-3 text-right  text-gray-900 font-medium">{{ $task->title }}</td>
+<tbody>
+@foreach($tasks as $task)
+<tr>
 
-                    <td class="px-4 py-3 text-right  text-gray-600">{{ $task->description }}</td>
+    <!-- Status -->
+    <td>
+        @if($task->completed)
+            <span class="status done">✔ Completed</span>
+        @else
+            <span class="status pending">❌ Pending</span>
+        @endif
+    </td>
 
-                    <td class="px-4 py-3">
-                        <form action="{{ route('tasks.update', $task) }}" method="POST">
-                            @csrf
-                            @method('PATCH')
-                            <button
-                                class="px-3 py-1 text-right  text-white 
-                                       {{ $task->completed ? 'bg-green-500  hover:bg-yellow-600' :  'bg-red-600 hover:bg-green-700' }} transition">
-                                {{ $task->completed ? 'إلغاء الإنجاز' : 'تم الإنجاز' }}
-                            </button>
-                        </form>
-                    </td>
+    <!-- Title -->
+    <td>{{ $task->title }}</td>
 
-                    <td class="px-4 py-3">
-                        <form action="{{ route('tasks.destroy', $task) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button class="px-3 text-right  py-1 rounded-lg bg-red-600 text-white hover:bg-red-700 transition">
-                                حذف
-                            </button>
-                        </form>
-                    </td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
-</div>
+    <!-- Description -->
+    <td class="text-truncate">{{ $task->description }}</td>
 
-            </ul>
+    <!-- Update -->
+    <td style="text-align:center">
+        <form action="{{ route('tasks.update', $task) }}" method="POST">
+            @csrf
+            @method('PATCH')
+            <button class="btn {{ $task->completed ? 'btn-warning' : 'btn-success' }}">
+                {{ $task->completed ? 'Mark as Pending' : 'Mark as Completed' }}
+            </button>
+        </form>
+    </td>
+
+    <!-- Delete -->
+    <td style="text-align:center">
+        <form action="{{ route('tasks.destroy', $task) }}" method="POST"
+              onsubmit="return confirm('Are you sure you want to delete this task?')">
+            @csrf
+            @method('DELETE')
+            <button class="btn btn-danger">Delete</button>
+        </form>
+    </td>
+
+</tr>
+@endforeach
+</tbody>
+
+
+<!-- جدول التاسكات -->
 
         </div>
     </div>
     </div>
 </body>
-
-<h1>قائمة التاسكات</h1>
-
-<!-- <form action="{{ route('tasks.store') }}" method="POST">
-    @csrf
-
-    <input type="text" name="title" placeholder="عنوان التاسك" required>
-
-    <textarea name="description" placeholder="وصف التاسك (اختياري)"></textarea>
-
-    <button type="submit">أضف</button>
-</form> -->
-
-<!-- <ul>
-@foreach($tasks as $task)
-    <li>
-        <form action="{{ route('tasks.update', $task) }}" method="POST" style="display:inline;">
-            @csrf
-            @method('PATCH')
-            <button type="submit">{{ $task->completed ? '✔' : '❌' }}</button>
-        </form>
-
-        {{ $task->title }}
-
-        <form action="{{ route('tasks.destroy', $task) }}" method="POST" >
-            @csrf
-            @method('DELETE')
-            <button type="submit">حذف</button>
-        </form>
-    </li>
-@endforeach
-</ul>
-
-</body> -->
 </html>

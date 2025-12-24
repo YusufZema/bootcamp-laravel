@@ -55,7 +55,7 @@
                 </a>
                 </li>
                 <li>
-                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="friends">
+                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="logout">
                     <i class="fa-regular fa-circle-user fa-fw"></i>
                     <span>Settings</span>
                 </a>
@@ -65,10 +65,10 @@
     <div class="content w-full"> 
     <!-- Start Head -->
     <div class="head bg-white p-15 between-flex">
-        <d iv class="search p-relative">
-            <input  class="p-10" type="search" placeholder="Type A Keyword" />
+        <div class="search p-relative">
+            <input  class="p-10" type="search" placeholder="Search courses" />
             
-        </d>
+        </div>
         <div class="icons d-flex align-center">
             <span class="notification p-relative">
                 <i class="fa-solid fa-pencil"></i>
@@ -79,7 +79,7 @@
         </div>
         </div>
         <!-- End Head -->
-          <div class="content w-full">
+          <div class="content_pro w-full">
 
                 <article class="card" role="region" aria-labelledby="profileTitle">
                     <aside class="side txt-c p-20">

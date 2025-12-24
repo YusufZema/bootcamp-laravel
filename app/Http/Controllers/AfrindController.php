@@ -1,58 +1,43 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
-use App\Models\User;
 
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class AfrindController extends Controller
-    {
-        // عرض أصدقاء المستخدم
-      
-            public function index()
 {
-    $user = Auth::user();
+    // عرض الأصدقاء
+    public function index()
+    {
+        $user = Auth::user();
 
-    // أصدقاؤه الحاليون
-    $friends = $user->friends;
+        $friends = $user->friends;
 
-    // كل المستخدمين الآخرين (غير المستخدم الحالي)
-    $otherUsers = User::where('id', '!=', $user->id)->get();
+        $otherUsers = User::where('id', '!=', $user->id)->get();
 
-    // مرّر كلا المتغيرين للـ Blade
-    return view('friends', compact('friends', 'otherUsers'));
-}
+        return view('friends', compact('friends', 'otherUsers'));
+    }
 
-        //     $user = Auth::user();
-        //     $friends = $user->friends; // يجلب كل الأصدقاء
+    // إضافة صديق
+    public function addFriend($id)
+    {
+        $user = Auth::user();
 
-        //     return view('friends', compact('friends'));
-        // }
-
-        // // إضافة صديق
-        // public function addFriend($friend_id)
-        // {
-        //     $user = Auth::user();
-        //     $friend = User::find($friend_id);
-
-        //     if ($friend && !$user->friends->contains($friend->id)) {
-        //         $user->friends()->attach($friend->id);
-        //         $friend->friends()->attach($user->id); // لجعل العلاقة ثنائية
-        //     }
-
-        //     return redirect()->back();
+        // منع إضافة نفسك
+        if ($user->id == $id) {
+            return back()->with('error', 'لا يمكنك إضافة نفسك');
         }
-    
 
-    //
-    // public function index()
-    // {
-    //     $user = Auth::user();
-    //     $friends = $user->friends; // العلاقة
-        
+        // منع التكرار
+        if ($user->friends()->where('friend_id', $id)->exists()) {
+            return back()->with('error', 'هذا المستخدم مضاف بالفعل');
+        }
 
-    //     return view('friends', compact('friends'));
-    // }
+        // إضافة ثنائية (صداقة حقيقية)
+        $user->friends()->attach($id);
+        User::find($id)->friends()->attach($user->id);
 
-
+        return back()->with('success', 'تمت إضافة الصديق بنجاح');
+    }
+}
