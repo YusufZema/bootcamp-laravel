@@ -30,10 +30,6 @@ html[dir="rtl"] {
     direction: rtl;
 }
 
-html[dir="ltr"] {
-    direction: ltr;
-}
-
 body {
     position: relative;
     margin: 0;
@@ -101,46 +97,13 @@ body::after {
     position: relative;
     z-index: 1;
     width: 100%;
-    max-width: 420px;
+    max-width: 550px;
     padding: 20px;
 }
 
-/* Language Toggle Button */
-.lang-toggle {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    padding: 8px 16px;
-    background: rgba(255, 255, 255, 0.95);
-    border: 2px solid var(--main-color-light);
-    border-radius: 25px;
-    color: var(--main-color);
-    font-weight: 600;
-    font-size: 13px;
-    cursor: pointer;
-    transition: all var(--main-duration);
-    z-index: 10;
-    box-shadow: var(--shadow-sm);
-    font-family: inherit;
-    backdrop-filter: blur(10px);
-}
-
-html[dir="rtl"] .lang-toggle {
-    left: auto;
-    right: 15px;
-}
-
-.lang-toggle:hover {
-    background: var(--main-color);
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
-    border-color: var(--main-color);
-}
-
 form {
-    background: rgba(255, 255, 255, 0.95);
-    padding: 45px 40px;
+    background: rgba(255, 255, 255, 0.98);
+    padding: 50px 45px;
     border-radius: 24px;
     width: 100%;
     box-shadow: var(--shadow-lg);
@@ -190,8 +153,8 @@ form:hover {
 
 h2 {
     text-align: center;
-    margin: 0 0 35px 0;
-    font-size: 32px;
+    margin: 0 0 40px 0;
+    font-size: 34px;
     font-weight: 800;
     background: linear-gradient(135deg, var(--main-color), var(--main-color-light));
     -webkit-background-clip: text;
@@ -199,6 +162,7 @@ h2 {
     background-clip: text;
     animation: fadeInDown 0.8s ease-out 0.2s both;
     position: relative;
+    font-family: "Cairo", sans-serif;
 }
 
 @keyframes fadeInDown {
@@ -264,11 +228,12 @@ h2::after {
 
 label {
     display: block;
-    margin: 0 0 10px 0;
+    margin: 0 0 12px 0;
     font-weight: 600;
-    font-size: 15px;
+    font-size: 16px;
     color: var(--secondary-color);
     transition: color var(--main-duration);
+    font-family: "Cairo", sans-serif;
 }
 
 .input-wrapper {
@@ -277,15 +242,23 @@ label {
 
 input {
     width: 100%;
-    padding: 14px 16px;
+    padding: 15px 18px;
     border: 2px solid rgba(16, 202, 183, 0.2);
     border-radius: 12px;
-    background: rgba(255, 255, 255, 0.9);
-    font-size: 15px;
+    background: rgba(255, 255, 255, 0.95);
+    font-size: 16px;
     color: var(--text-color);
     transition: all var(--main-duration);
-    font-family: inherit;
+    font-family: "Cairo", sans-serif;
     outline: none;
+    text-align: right;
+}
+
+/* Email and Password inputs - LTR for English text */
+#email,
+#password {
+    direction: ltr;
+    text-align: left;
 }
 
 input::placeholder {
@@ -309,21 +282,21 @@ input:not(:placeholder-shown)+.input-icon {
 /* Button */
 button {
     width: 100%;
-    padding: 16px;
+    padding: 17px;
     background: linear-gradient(135deg, var(--main-color), var(--main-color-light));
     border: none;
     color: white;
     border-radius: 12px;
     cursor: pointer;
-    font-size: 17px;
-    font-weight: 600;
+    font-size: 18px;
+    font-weight: 700;
     transition: all var(--main-duration);
-    margin-top: 10px;
+    margin-top: 15px;
     position: relative;
     overflow: hidden;
     animation: fadeInUp 0.6s ease-out 0.5s both;
     box-shadow: var(--shadow-md);
-    font-family: inherit;
+    font-family: "Cairo", sans-serif;
 }
 
 button::before {
@@ -358,15 +331,16 @@ button:active {
 a {
     display: block;
     text-align: center;
-    margin-top: 25px;
+    margin-top: 28px;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 600;
     color: var(--main-color);
     transition: all var(--main-duration);
     animation: fadeInUp 0.6s ease-out 0.6s both;
     position: relative;
-    padding: 8px 0;
+    padding: 10px 0;
+    font-family: "Cairo", sans-serif;
 }
 
 a::after {
@@ -424,13 +398,10 @@ html[dir="rtl"] form {
     text-align: right;
 }
 
-html[dir="rtl"] input {
-    text-align: right;
-}
-
 html[dir="rtl"] p.error {
     border-left: none;
     border-right: 3px solid #ff6b6b;
+    text-align: right;
 }
 
 /* Responsive Design */
@@ -441,33 +412,62 @@ html[dir="rtl"] p.error {
     }
 
     form {
-        padding: 35px 25px;
+        padding: 40px 30px;
         border-radius: 20px;
     }
 
     h2 {
-        font-size: 28px;
+        font-size: 30px;
+        margin-bottom: 35px;
+    }
+
+    label {
+        font-size: 15px;
     }
 
     input {
-        padding: 12px 14px;
-        font-size: 14px;
+        padding: 14px 16px;
+        font-size: 15px;
     }
 
     button {
-        padding: 14px;
-        font-size: 16px;
+        padding: 16px;
+        font-size: 17px;
+    }
+
+    a {
+        font-size: 15px;
     }
 }
 
 @media (max-width: 480px) {
     form {
-        padding: 30px 20px;
+        padding: 35px 25px;
     }
 
     h2 {
-        font-size: 24px;
+        font-size: 26px;
         margin-bottom: 30px;
+    }
+
+    label {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    input {
+        padding: 13px 15px;
+        font-size: 14px;
+    }
+
+    button {
+        padding: 15px;
+        font-size: 16px;
+    }
+
+    a {
+        font-size: 14px;
+        margin-top: 25px;
     }
 }
 
