@@ -1,155 +1,166 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>dashboard</title>
-        
-        
-        <link rel="stylesheet" href="{{ asset('css/freomwrok.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">    
-        <link rel="stylesheet" href="{{ asset('css/main_dashboard.css') }}">    
+    <title>لوحة التحكم</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('css/freomwrok.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
 </head>
 <body>
-    <div class="page  d-flex">
-    <div class="sidebar p-relative p-20 bg-white">
-        <div class= "box_hedars ">
-            <img class="hide-mobile w-100" src="logoH.jpg" alt="" />
-            <h3 class="text text-c mt-0 p-relative">Hyrmas</h3>
-        </div>
+    <div class="page d-flex">
+        <div class="sidebar p-relative p-20 bg-white">
+            <div class="box_hedars">
+                <img class="hide-mobile" src="{{ asset('logoH.jpg') }}" alt="شعار هرماس" />
+                <h3 class="text text-c mt-0 p-relative">هرماس</h3>
+            </div>
             <ul>
                 <li>
-                <a class="active d-flex align-center fs-14 c-black rad-6 p-10" href="dashboard">
-                    <i class="fa-regular fa-chart-bar fa-fw"></i>
-                    <span>Dashboard</span>
-                </a>
+                    <a class="active d-flex align-center fs-14 c-black rad-6 p-10" href="{{ route('dashboard') }}">
+                        <i class="fa-regular fa-chart-bar fa-fw"></i>
+                        <span>لوحة التحكم</span>
+                    </a>
                 </li>
                 <li>
-                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="tasks">
-                    <i class="fa-solid fa-gear fa-fw"></i>
-                    <span>Tasks</span>
-                </a>
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="{{ route('tasks.index') }}">
+                        <i class="fa-solid fa-list-check fa-fw"></i>
+                        <span>المهام</span>
+                    </a>
                 </li>
                 <li>
-                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="profile">
-                    <i class="fa-regular fa-user fa-fw"></i>
-                    <span>Profile</span>
-                </a>
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="{{ route('profile.show') }}">
+                        <i class="fa-regular fa-user fa-fw"></i>
+                        <span>الملف الشخصي</span>
+                    </a>
                 </li>
                 <li>
-                <a class=" d-flex align-center fs-14 c-black rad-6 p-10" href="courses">
-                    <i class="fa-solid fa-graduation-cap fa-fw"></i>
-                    <span>Courses</span>
-                </a>
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="{{ route('courses.index') }}">
+                        <i class="fa-solid fa-graduation-cap fa-fw"></i>
+                        <span>الدورات</span>
+                    </a>
                 </li>
                 <li>
-                <a class=" d-flex align-center fs-14 c-black rad-6 p-10" href="friends">
-                    <i class="fa-regular fa-circle-user fa-fw"></i>
-                    <span>Friends</span>
-                </a>
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="{{ route('friends.index') }}">
+                        <i class="fa-regular fa-circle-user fa-fw"></i>
+                        <span>الأصدقاء</span>
+                    </a>
                 </li>
                 <li>
-                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="logout">
-                    <i class="fa-regular fa-circle-user fa-fw"></i>
-                    <span>Settings</span>
-                </a>
-              </li>
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="{{ route('logout.view') }}">
+                        <i class="fa-solid fa-gear fa-fw"></i>
+                        <span>الإعدادات</span>
+                    </a>
+                </li>
             </ul>
-    </div>
-        <div class="content w-full"> 
+        </div>
+        
+        <div class="content w-full">
             <!-- Start Head -->
             <div class="head bg-white p-15 between-flex">
                 <div class="search p-relative">
-                    <input class="p-10" type="search" placeholder="Search courses"/>
+                    <input class="p-10" type="search" placeholder="ابحث عن الدورات..."/>
                 </div>
                 <div class="icons d-flex align-center">
                     <span class="notification p-relative">
-                        <i class="fa-solid fa-graduation-cap"></i>
+                        <i class="fa-solid fa-bell"></i>
                     </span>
-                    <img src="{{ asset('img/cat-family-job-board.svg') }}" alt="" />
-                    <img class="hide-mobile w-100" src="logoH.jpg" alt="" />
-
+                    <img src="{{ asset('img/cat-family-job-board.svg') }}" alt="صورة المستخدم" />
+                    <img class="hide-mobile" src="{{ asset('logoH.jpg') }}" alt="شعار" />
                 </div>
-                <!-- <form action="{{ route('logout') }}" method="POST">
-                    @csrf
-                    <button type="submit">Logout</button>
-                </form> -->
-
             </div>
             <!-- End Head -->
 
-         <h1 class="p-relative">Dashboard   {{ $greeting }}</h1>
-        <div class="wrapper d-grid gap-20">
-            <div class="welcome bg-white rad-10 txt-c-mobile block-mobile">
-                              <div class="intro p-20 d-flex space-between bg-eee">
-                                <div>
-                                    <h2 class="m-0">Welcome</h2>
-                                    <p class="c-grey mt-5"> {{ $user->name }}</p>
-                                </div>
-
-                                <img class="hide-mobile w-100" src="../img/bg2-2.png" alt="" /> 
-                                 <img class="hide-mobile w-100" src="../img/bg4-2.png" alt="" />
-
-                              </div>
-                              <div class="body txt-c d-flex p-20 mt-20 mb-20 block-mobile">
-                                <div>{{ $user->name }}  <span class="d-block c-grey fs-14 mt-10">Developer</span></div>
-                                <div>4 <span class="d-block c-grey fs-14 mt-10">Projects</span></div>
-                                <div>$8500 <span class="d-block c-grey fs-14 mt-10">Earned</span></div>
-                                </div>
-                                <a href="profile" class="visit d-block fs-14 bg-blue c-white w-fit btn-shape">Profile</a>
-                                </div>
-                                 <div class="quick-draft p-20 bg-white rad-10">
-                                    @if(session('message'))
-                                        <div 
-                                            style="background: #d4edda; color: #155724; padding: 12px 20px; 
-                                                border-radius: 6px; margin-bottom: 20px; border: 1px solid #c3e6cb;">
-                                            {{ session('message') }}
-                                        </div>
-                                    @endif
-
-                                    <h2 class="mt-0 mb-10 twxt-Center"> Create a Task</h2>
-                                    <p class="mt-0 mb-20 c-grey fs-15"> wat task do you have today </p>
-                                    <form action="{{ route('tasks.store') }}"method="POST"> 
-                                        @csrf    
-                                     <input class="d-block mb-20 w-full p-10 b-none bg-eee rad-6" type="text"  name="title" placeholder="Title" />
-                                    <textarea class="d-block mb-20 w-full p-10 b-none bg-eee rad-6" placeholder="desk" name="description"></textarea>
-                                    <input class="save d-block fs-14 bg-blue c-white b-none w-fit btn-shape" type="submit" value="Save" />
-                                    </form>
-                                     <img class="hide-mobile w-100" src="../img/bg4-2.png" alt="" />
-                                </div>
+            <h1 class="p-relative">لوحة التحكم {{ $greeting }}</h1>
+            
+            <div class="wrapper d-grid gap-20">
+                <!-- Welcome Card -->
+                <div class="welcome bg-white rad-10 txt-c-mobile block-mobile">
+                    <div class="intro p-20 d-flex space-between bg-eee">
+                        <div>
+                            <h2 class="m-0">مرحباً</h2>
+                            <p class="c-grey mt-5">{{ $user->name }}</p>
+                        </div>
+                        <div class="intro-images">
+                            <img class="hide-mobile" src="{{ asset('img/bg2-2.png') }}" alt="" />
+                            <img class="hide-mobile" src="{{ asset('img/bg4-2.png') }}" alt="" />
                         </div>
                     </div>
+                    <div class="body txt-c d-flex p-20 mt-20 mb-20 block-mobile">
+                        <div>
+                            {{ $user->name }}
+                            <span class="d-block c-grey fs-14 mt-10">مطور</span>
+                        </div>
+                        <div>
+                            4
+                            <span class="d-block c-grey fs-14 mt-10">مشاريع</span>
+                        </div>
+                        <div>
+                            $8500
+                            <span class="d-block c-grey fs-14 mt-10">مكسب</span>
+                        </div>
+                    </div>
+                    <a href="{{ route('profile.show') }}" class="visit d-block fs-14 bg-blue c-white w-fit btn-shape">الملف الشخصي</a>
+                </div>
+                
+                <!-- Create Task Card -->
+                <div class="quick-draft p-20 bg-white rad-10">
+                    @if(session('message'))
+                        <div class="success-message">
+                            {{ session('message') }}
+                        </div>
+                    @endif
+
+                    <h2 class="mt-0 mb-10 txt-c">إنشاء مهمة جديدة</h2>
+                    <p class="mt-0 mb-20 c-grey fs-15">ما هي المهمة التي تريد إضافتها اليوم؟</p>
+                    <form action="{{ route('tasks.store') }}" method="POST">
+                        @csrf
+                        <input 
+                            class="d-block mb-20 w-full p-10 b-none bg-eee rad-6" 
+                            type="text" 
+                            name="title" 
+                            placeholder="عنوان المهمة" 
+                            required
+                        />
+                        <textarea 
+                            class="d-block mb-20 w-full p-10 b-none bg-eee rad-6" 
+                            placeholder="وصف المهمة" 
+                            name="description"
+                            rows="4"
+                            required
+                        ></textarea>
+                        <input 
+                            class="save d-block fs-14 bg-blue c-white b-none w-fit btn-shape" 
+                            type="submit" 
+                            value="حفظ" 
+                        />
+                    </form>
+                    <img class="hide-mobile task-image" src="{{ asset('img/bg4-2.png') }}" alt="" />
                 </div>
             </div>
         </div>
-        </div>
-    </div>
     </div>
 
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let hour = new Date().getHours();
 
-
-
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    let hour = new Date().getHours();
-
-    fetch("{{ route('user.time') }}", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "X-CSRF-TOKEN": "{{ csrf_token() }}",
-        },
-        body: JSON.stringify({ hour: hour })
-    }).then(() => {
-        setTimeout(() => {
-    location.reload();
-}, 3600000); // 3600000 = ساعة واحدة (60 دقيقة)
+        fetch("{{ route('user.time') }}", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-TOKEN": "{{ csrf_token() }}",
+            },
+            body: JSON.stringify({ hour: hour })
+        }).then(() => {
+            setTimeout(() => {
+                location.reload();
+            }, 3600000); // 3600000 = ساعة واحدة (60 دقيقة)
+        });
     });
-
-});
-</script>
-
-
+    </script>
 </body>
 </html>
