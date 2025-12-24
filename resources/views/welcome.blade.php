@@ -1,75 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Hermas </title>
+    <title>معهد هرماس - Hermas Institute</title>
     <!-- fil css -->
-
-
-
-        <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
-
+    <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
     <!-- google font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Cormorant+SC:wght@300;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="header">
         <div class="container">
-           <div class= "box_hedars ">
-            <img class="hide-mobile w-100" src="logoH.jpg" alt="" />
-            <h3 class="text text-c mt-0 p-relative">Hyrmas</h3>
+           <div class="box_hedars">
+            <img class="logo-img" src="logoH.jpg" alt="شعار معهد هرماس" />
+            <h3 class="logo-text">هرماس</h3>
           </div>
-            <!-- <a href="#" class="logo"> Hermas Institute</a> -->
             <div class="grob">
-                <a href="login" class="loginn"> login</a>
-                <a href="regastr" class="loginn"> regastr</a>
+                <a href="login" class="loginn"> تسجيل الدخول</a>
+                <a href="regastr" class="loginn loginn-primary"> التسجيل</a>
             </div>
-            <!-- <div class="links">
-                <span class="icon">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </span>
-                <ul>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div> -->
         </div>
     </div>
      <!-- Start Landing Section -->
-     <div class="landing" style="background-image: url('logoH.jpg')">
+     <div class="landing">
+        <div class="landing-overlay"></div>
         <div class="intro-text">
-          <h1> مرحبا بكم </h1>
-          <p>
-             معهد هرماس هو مركز تدريبي يقدّم برامج تعليمية حديثة لتطوير المهارات التقنية واللغوية والمهنية، بإشراف مدربين متخصصين وبأساليب تدريب مبتكرة تلائم احتياجات سوق العمل.</p>
+          <h1 class="fade-in-up">مرحباً بكم</h1>
+          <p class="fade-in-up-delay">
+             معهد هرماس هو مركز تدريبي يقدّم برامج تعليمية حديثة لتطوير المهارات التقنية واللغوية والمهنية، بإشراف مدربين متخصصين وبأساليب تدريب مبتكرة تلائم احتياجات سوق العمل.
+          </p>
+          <div class="cta-buttons fade-in-up-delay-2">
+            <a href="regastr" class="btn-primary">ابدأ رحلتك</a>
+            <a href="#features" class="btn-secondary">اعرف المزيد</a>
+          </div>
+        </div>
+        <div class="scroll-indicator">
+          <div class="mouse">
+            <div class="wheel"></div>
+          </div>
         </div>
       </div>
       <!-- End Landing Section -->
       <!-- Start Features -->
-      <div class="features">
+      <div class="features" id="features">
         <div class="container">
-          <div class="feat">
-            <i class="fas fa-magic fa-3x"></i>
-            <h3>Tell Us Your Idea</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut lab</p>
+          <div class="section-header">
+            <h2 class="section-title">مميزاتنا</h2>
+            <p class="section-subtitle">نقدم لكم أفضل الخدمات التعليمية والتدريبية</p>
           </div>
-          <div class="feat">
-            <i class="far fa-gem fa-3x"></i>
-            <h3>We Will Do All The Work</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut lab</p>
-          </div>
-          <div class="feat">
-            <i class="fas fa-globe-asia fa-3x"></i>
-            <h3>Your Product is Worldwide</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut lab</p>
+          <div class="features-grid">
+            <div class="feat">
+              <div class="feat-icon-wrapper">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <h3>برامج تعليمية متخصصة</h3>
+              <p>نقدم برامج تدريبية شاملة تغطي جميع الجوانب التقنية واللغوية والمهنية لتطوير مهاراتك بشكل كامل</p>
+            </div>
+            <div class="feat">
+              <div class="feat-icon-wrapper">
+                <i class="fas fa-users"></i>
+              </div>
+              <h3>مدربون محترفون</h3>
+              <p>فريق من المدربين المتخصصين ذوي الخبرة الواسعة في مجالاتهم، جاهزون لمساعدتك في رحلتك التعليمية</p>
+            </div>
+            <div class="feat">
+              <div class="feat-icon-wrapper">
+                <i class="fas fa-briefcase"></i>
+              </div>
+              <h3>مواكبة سوق العمل</h3>
+              <p>برامجنا مصممة خصيصاً لتلائم احتياجات سوق العمل الحالية والمستقبلية، لضمان نجاحك المهني</p>
+            </div>
           </div>
         </div>
       </div>

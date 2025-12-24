@@ -1,131 +1,126 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول | Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Work+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- fil css -->
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
 
-    <style>
-        body {
-            position: relative;
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: Arial, sans-serif;
-            overflow: hidden;
-        }
+    <!-- google font-->
 
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('logoH.jpg');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.25; 
-            z-index: -1;
-        }
-
-        /* تصميم النموذج */
-        form {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 30px;
-            border-radius: 12px;
-            width: 330px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-        }
-
-        h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 26px;
-            font-weight: bold;
-        }
-
-        label {
-            display: block;
-            margin: 10px 0 5px;
-            font-weight: bold;
-            font-size: 14px;
-        }
-
-        input {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid rgba(255,255,255,0.5);
-            border-radius: 8px;
-            margin-bottom: 15px;
-            background: rgba(255,255,255,0.25);
-            font-size: 14px;
-        }
-
-        input::placeholder {
-            color: #796d6dff;
-        }
-
-        button {
-            width: 100%;
-            padding: 12px;
-            background: #007bff;
-            border: none;
-            color: white;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: 0.3s;
-        }
-
-        button:hover {
-            background: #005ec4;
-        }
-
-        a {
-            display: block;
-            text-align: center;
-            margin-top: 15px;
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: bold;
-            color: #005ec4;
-
-        }
-
-        p.error {
-            color: #ff7a7a;
-            text-align: center;
-            font-size: 14px;
-            margin-top: 10px;
-        }
-    </style>
+ 
 </head>
 
 <body>
+    <div class="login-container">
+        <button class="lang-toggle" onclick="toggleLanguage()" aria-label="Toggle Language">
+            <span lang="ar">EN</span>
+            <span lang="en" style="display: none;">AR</span>
+        </button>
+        
+        <form action="{{ url('login') }}" method="POST">
+            @csrf
 
-    <form action="{{ url('login') }}" method="POST">
-        @csrf
+            <h2>
+                <span lang="ar">تسجيل الدخول</span>
+                <span lang="en" style="display: none;">Login</span>
+            </h2>
 
-        <h2>Login</h2>
+            <div class="input-group">
+                <label for="email">
+                    <span lang="ar">البريد الإلكتروني:</span>
+                    <span lang="en" style="display: none;">Email Address:</span>
+                </label>
+                <div class="input-wrapper">
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="example@mail.com" 
+                        required
+                        autocomplete="email"
+                    >
+                </div>
+            </div>
 
-        <label for="email">Email Address:</label>
-        <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+            <div class="input-group">
+                <label for="password">
+                    <span lang="ar">كلمة المرور:</span>
+                    <span lang="en" style="display: none;">Password:</span>
+                </label>
+                <div class="input-wrapper">
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        placeholder="" 
+                        required
+                        autocomplete="current-password"
+                    >
+                </div>
+            </div>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" placeholder="Enter password" required>
+            <button type="submit">
+                <span lang="ar">تسجيل الدخول</span>
+                <span lang="en" style="display: none;">Sign In</span>
+            </button>
 
-        <button type="submit">Sign In</button>
+            @if ($errors->has('login_error'))
+                <p class="error">{{ $errors->first('login_error') }}</p>
+            @endif
 
-        @if ($errors->has('login_error'))
-            <p class="error">{{ $errors->first('login_error') }}</p>
-        @endif
+            <a href="regastr">
+                <span lang="ar">إنشاء حساب جديد</span>
+                <span lang="en" style="display: none;">Create New Account</span>
+            </a>
+        </form>
+    </div>
 
-        <a href="regastr">Create New Account</a>
-    </form>
+    <script>
+        // Language toggle functionality (optional - can be enhanced)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Detect browser language or use stored preference
+            const savedLang = localStorage.getItem('preferredLang') || 'ar';
+            setLanguage(savedLang);
+        });
 
+        function setLanguage(lang) {
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            
+            // Show/hide language spans
+            document.querySelectorAll('[lang="ar"]').forEach(el => {
+                el.style.display = lang === 'ar' ? 'inline' : 'none';
+            });
+            document.querySelectorAll('[lang="en"]').forEach(el => {
+                el.style.display = lang === 'en' ? 'inline' : 'none';
+            });
+            
+            // Update placeholders
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
+            
+            if (lang === 'ar') {
+                emailInput.placeholder = 'example@mail.com';
+                passwordInput.placeholder = 'أدخل كلمة المرور';
+            } else {
+                emailInput.placeholder = 'example@mail.com';
+                passwordInput.placeholder = 'Enter password';
+            }
+            
+            localStorage.setItem('preferredLang', lang);
+        }
+
+        function toggleLanguage() {
+            const currentLang = document.documentElement.lang;
+            const newLang = currentLang === 'ar' ? 'en' : 'ar';
+            setLanguage(newLang);
+        }
+    </script>
 </body>
 </html>
