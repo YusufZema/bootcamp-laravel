@@ -7,7 +7,8 @@
     <title>معهد هرماس - Hermas Institute</title>
     <!-- fil css -->
     <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
+    <!-- Font Awesome - CDN for reliable server deployment -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- google font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +18,7 @@
     <div class="header">
         <div class="container">
            <div class="box_hedars">
-            <img class="logo-img" src="logoH.jpg" alt="شعار معهد هرماس" />
+            <img class="logo-img" src="{{ asset('logoH.jpg') }}" alt="شعار معهد هرماس" />
             <h3 class="logo-text">هرماس</h3>
           </div>
             <div class="grob">
@@ -56,21 +57,21 @@
           <div class="features-grid">
             <div class="feat">
               <div class="feat-icon-wrapper">
-                <i class="fas fa-graduation-cap"></i>
+                <i class="fas fa-graduation-cap" aria-hidden="true"></i>
               </div>
               <h3>برامج تعليمية متخصصة</h3>
               <p>نقدم برامج تدريبية شاملة تغطي جميع الجوانب التقنية واللغوية والمهنية لتطوير مهاراتك بشكل كامل</p>
             </div>
             <div class="feat">
               <div class="feat-icon-wrapper">
-                <i class="fas fa-users"></i>
+                <i class="fas fa-users" aria-hidden="true"></i>
               </div>
               <h3>مدربون محترفون</h3>
               <p>فريق من المدربين المتخصصين ذوي الخبرة الواسعة في مجالاتهم، جاهزون لمساعدتك في رحلتك التعليمية</p>
             </div>
             <div class="feat">
               <div class="feat-icon-wrapper">
-                <i class="fas fa-briefcase"></i>
+                <i class="fas fa-briefcase" aria-hidden="true"></i>
               </div>
               <h3>مواكبة سوق العمل</h3>
               <p>برامجنا مصممة خصيصاً لتلائم احتياجات سوق العمل الحالية والمستقبلية، لضمان نجاحك المهني</p>
