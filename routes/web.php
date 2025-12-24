@@ -65,8 +65,7 @@ Route::get('/courses', [CourseController::class, 'index'])->name('courses.index'
 
 ///frinds
 
-// Route::get('/friends', [AfrindController::class, 'index'])->name('friends');
-Route::middleware('auth')->group(function() {
-    Route::get('/friends', [AfrindController::class, 'index'])->name('friends.index');
-    Route::get('/add-friend/{id}', [AfrindController::class, 'addFriend'])->name('friends.add');
-});
+Route::get('/friends', [AfrindController::class, 'index'])->name('friends.index');
+
+Route::get('/friends/add/{id}', [AfrindController::class, 'addFriend'])
+    ->name('friends.add');

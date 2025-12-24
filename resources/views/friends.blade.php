@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('css/freomwrok.css') }}">
         <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">    
+        <link rel="stylesheet" href="{{ asset('css/freinds.css') }}">    
 </head>
 <body>
     <div class="page  d-flex">
@@ -53,7 +54,7 @@
                 </a>
                 </li>
                 <li>
-                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="Settings">
+                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="logout">
                     <i class="fa-regular fa-circle-user fa-fw"></i>
                     <span>Settings</span>
                 </a>
@@ -64,7 +65,7 @@
             <!-- Start Head -->
             <div class="head bg-white p-15 between-flex">
                 <div class="search p-relative">
-                    <input class="p-10" type="search" placeholder="بحث عن دورة" />
+                    <input class="p-10" type="search" placeholder="Search courses" />
                 </div>
                 <div class="icons d-flex align-center">
                     <span class="notification p-relative">
@@ -82,94 +83,85 @@
                     <h2 class="text-3xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-4xl">Meet our leadership</h2>
                     <p class="mt-6 text-lg/8 text-gray-600">We’re a dynamic group of individuals who are passionate about what we do and dedicated to delivering the best results for our clients.</p>
                   </div> -->
-                  <ul role="list" class="grid gap-x-10 gap-y-12 sm:grid-cols-3 sm:gap-y-16 xl:col-span-4">
-                    <li>
-                      <div class="items-center twxt-Center gap-x-6">
-                        <img class=" rounded-full outline-1 -outline-offset-1 outline-black/5"  src="{{ asset('imgs/photo_2025-12-08_20-50-45.jpg') }}" alt="logo">
-                        <div>
-                          <h3 class="text-base/7 font-semibold tracking-tight text-gray-900">Leslie Alexander</h3>
-                          <p class="text-sm/6 font-semibold text-indigo-600">Co-Founder / CEO</p>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="items-center twxt-Center gap-x-6">
-                        <img class=" rounded-full outline-1 -outline-offset-1 outline-black/5"  src="{{ asset('imgs/photo_2025-12-08_20-51-28.jpg') }}" alt="logo">
-                        <div class="">
-                          
-                          <h3 class="text-base/7 font-semibold tracking-tight text-gray-900">Michael Foster</h3>
-                          <p class="text-sm/6 font-semibold text-indigo-600">Co-Founder / CTO</p>
-                        </div>
-                      </div>
-                    </li>
-                   <li>
-                      <div class="items-center twxt-Center gap-x-6">
-                        <img class=" rounded-full outline-1 -outline-offset-1 outline-black/5"  src="{{ asset('imgs/photo_2025-12-08_20-52-06.jpg') }}" alt="logo">
-                        <div class="">
-                          <h3 class="text-base/7 font-semibold tracking-tight text-gray-900">Michael Foster</h3>
-                          <p class="text-sm/6 font-semibold text-indigo-600">Co-Founder / CTO</p>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="items-center twxt-Center gap-x-6">
-                        <img class=" rounded-full outline-1 -outline-offset-1 outline-black/5"  src="{{ asset('imgs/photo_2025-12-08_20-52-36.jpg') }}" alt="logo">
-                        <div class="">
-                          <h3 class="text-base/7 font-semibold tracking-tight text-gray-900">Michael Foster</h3>
-                          <p class="text-sm/6 font-semibold text-indigo-600">Co-Founder / CTO</p>
-                        </div>
-                      </div>
-                    </li>
-                  <li>
-                      <div class="items-center twxt-Center gap-x-6">
-                        <img class=" rounded-full outline-1 -outline-offset-1 outline-black/5"  src="{{ asset('imgs/photo_2025-12-08_20-53-10.jpg') }}" alt="logo">
-                        <div class="">
-                          <h3 class="text-base/7 font-semibold tracking-tight text-gray-900">Michael Foster</h3>
-                          <p class="text-sm/6 font-semibold text-indigo-600">Co-Founder / CTO</p>
-                        </div>
-                      </div>
-                    </li>
-                   <li>
-                      <div class="items-center twxt-Center gap-x-6">
-                        <img class=" rounded-full outline-1 -outline-offset-1 outline-black/5"  src="{{ asset('imgs/photo_2025-12-08_21-59-28.jpg') }}" alt="logo">
-                        <div class="">
-                          <h3 class="text-base/7 font-semibold tracking-tight text-gray-900">Michael Foster</h3>
-                          <p class="text-sm/6 font-semibold text-indigo-600">Co-Founder / CTO</p>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+        <div class="bg-gray-50 py-12">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
 
-            <h1>أصدقائي</h1>
+        <!-- العنوان -->
+        <h1 class="mb-10 text-center text-3xl font-bold text-gray-800">
+            أصدقائي
+        </h1>
 
-@if($friends->count() > 0)
-    <ul>
-    @foreach($friends as $friend)
-        <li>{{ $friend->name }} - {{ $friend->email }}</li>
-    @endforeach
-    </ul>
-@else
-    <p>ليس لديك أصدقاء بعد.</p>
-@endif
+        <!-- قائمة الأصدقاء -->
+        @if($friends->count() > 0)
+        <ul class="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            @foreach($friends as $friend)
+            <li class="rounded-2xl bg-white p-6 text-center shadow hover:shadow-lg transition">
+                <img
+                    src="{{ $friend->image ?? asset('imgs/default.png') }}"
+                    class="mx-auto mb-4 h-24 w-24 rounded-full object-cover ring-2 ring-gray-200"
+                    alt="صورة المستخدم">
 
-<hr>
+                <h3 class="text-lg font-semibold text-gray-900">
+                    {{ $friend->name }}
+                </h3>
 
-<h2>أضف أصدقاء جدد</h2>
+                <p class="text-sm text-gray-500">
+                    {{ $friend->email }}
+                </p>
 
-<ul>
-@foreach($otherUsers as $other)
-    <li>
-        {{ $other->name }} - {{ $other->email }}
-        @if(!$friends->contains($other->id))
-            <a href="{{ route('friends.add', $other->id) }}" style="color:blue;">إضافة صديق</a>
+                <span class="mt-3 inline-block rounded-full bg-green-100 px-4 py-1 text-sm font-medium text-green-600">
+                    صديقك
+                </span>
+            </li>
+            @endforeach
+        </ul>
         @else
-            <span style="color:green;">مضاف بالفعل</span>
+            <p class="text-center text-gray-500">
+                ليس لديك أصدقاء بعد 😢
+            </p>
         @endif
-    </li>
-@endforeach
-</ul>
+
+        <!-- فاصل -->
+        <hr class="my-14">
+
+        <!-- إضافة أصدقاء -->
+        <h2 class="mb-10 text-center text-2xl font-bold text-gray-800">
+            أضف أصدقاء جدد
+        </h2>
+
+        <ul class="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            @foreach($otherUsers as $other)
+            <li class="rounded-2xl bg-white p-6 text-center shadow hover:shadow-lg transition">
+                <img
+                    src="{{ $other->image ?? asset('imgs/default.png') }}"
+                    class="mx-auto mb-4 h-24 w-24 rounded-full object-cover ring-2 ring-gray-200"
+                    alt="صورة المستخدم">
+
+                <h3 class="text-lg font-semibold text-gray-900">
+                    {{ $other->name }}
+                </h3>
+
+                <p class="mb-4 text-sm text-gray-500">
+                    {{ $other->email }}
+                </p>
+
+                @if(!$friends->contains($other->id))
+                    <a href="{{ route('friends.add', $other->id) }}"
+                       class="inline-block rounded-xl bg-indigo-600 px-5 py-2 text-sm font-semibold text-white hover:bg-indigo-700 transition">
+                        ➕ إضافة صديق
+                    </a>
+                @else
+                    <span class="inline-block rounded-xl bg-green-100 px-5 py-2 text-sm font-semibold text-green-600">
+                        ✔ مضاف بالفعل
+                    </span>
+                @endif
+            </li>
+            @endforeach
+        </ul>
+
+    </div>
+</div>
+
 
 
         </div>

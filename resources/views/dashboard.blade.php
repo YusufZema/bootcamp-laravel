@@ -66,7 +66,7 @@
             <!-- Start Head -->
             <div class="head bg-white p-15 between-flex">
                 <div class="search p-relative">
-                    <input class="p-10" type="search" placeholder="بحث عن دورة" />
+                    <input class="p-10" type="search" placeholder="Search courses"/>
                 </div>
                 <div class="icons d-flex align-center">
                     <span class="notification p-relative">
@@ -113,8 +113,8 @@
                                         </div>
                                     @endif
 
-                                    <h2 class="mt-0 mb-10 twxt-Center">انساء تاسك </h2>
-                                    <p class="mt-0 mb-20 c-grey fs-15"> اكتب تاسك اليوام </p>
+                                    <h2 class="mt-0 mb-10 twxt-Center"> Create a Task</h2>
+                                    <p class="mt-0 mb-20 c-grey fs-15"> wat task do you have today </p>
                                     <form action="{{ route('tasks.store') }}"method="POST"> 
                                         @csrf    
                                      <input class="d-block mb-20 w-full p-10 b-none bg-eee rad-6" type="text"  name="title" placeholder="Title" />
@@ -131,87 +131,6 @@
         </div>
     </div>
     </div>
-</body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <!-- <h1 class="p-relative">Dashboard   {{ $greeting }}</h1>
-        <div class="wrapper d-grid gap-20">
-            <div class="welcome bg-white rad-10 txt-c-mobile block-mobile">
-                              <div class="intro p-20 d-flex space-between bg-eee">
-                                <div>
-                                    <h2 class="m-0">Welcome</h2>
-                                    <p class="c-grey mt-5"> {{ $user->name }}</p>
-                                </div>
-
-                                <img class="hide-mobile w-100" src="../img/bg2-2.png" alt="" />
-
-                              </div>
-                              <div class="body txt-c d-flex p-20 mt-20 mb-20 block-mobile">
-                                <div>{{ $user->name }}  <span class="d-block c-grey fs-14 mt-10">Developer</span></div>
-                                <div>4 <span class="d-block c-grey fs-14 mt-10">Projects</span></div>
-                                <div>$8500 <span class="d-block c-grey fs-14 mt-10">Earned</span></div>
-                                </div>
-                                <a href="profile" class="visit d-block fs-14 bg-blue c-white w-fit btn-shape">Profile</a>
-                                </div>
-                                 <div class="quick-draft p-20 bg-white rad-10">
-                                    @if(session('message'))
-                                        <div 
-                                            style="background: #d4edda; color: #155724; padding: 12px 20px; 
-                                                border-radius: 6px; margin-bottom: 20px; border: 1px solid #c3e6cb;">
-                                            {{ session('message') }}
-                                        </div>
-                                    @endif
-
-                                    <h2 class="mt-0 mb-10">انساء تاسك </h2>
-                                    <p class="mt-0 mb-20 c-grey fs-15"> اكتب تاسك اليوام </p>
-                                    <form action="{{ route('tasks.store') }}"method="POST"> 
-                                        @csrf    
-                                     <input class="d-block mb-20 w-full p-10 b-none bg-eee rad-6" type="text"  name="title" placeholder="Title" />
-                                    <textarea class="d-block mb-20 w-full p-10 b-none bg-eee rad-6" placeholder="Your Thought" name="description"></textarea>
-                                    <input class="save d-block fs-14 bg-blue c-white b-none w-fit btn-shape" type="submit" value="Save" />
-                                    </form>
-                                </div>
-                                
-                                
-                                
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

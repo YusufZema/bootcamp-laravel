@@ -53,7 +53,7 @@
                 </a>
                 </li>
                 <li>
-                 <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="settings.html">
+                 <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="logout">
                     <i class="fa-solid fa-gear fa-fw"></i>
                     <span>Settings</span>
                 </a>
@@ -64,7 +64,7 @@
             <!-- Start Head -->
             <div class="head bg-white p-15 between-flex">
                 <div class="search p-relative">
-                    <input class="p-10" type="search" placeholder="بحث عن دورة" />
+                    <input class="p-10" type="search" placeholder="Search courses" />
                 </div>
                 <div class="icons d-flex align-center">
                     <span class="notification p-relative">

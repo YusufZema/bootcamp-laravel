@@ -26,13 +26,7 @@ class UsersController extends Controller
             
         ]);
 
-        //التحقق ما اذا كان البريد الإلكتروني موجودًا سابقان
-       
-        // if (isset($vdata['email']) && User::where('email', $vdata['email'])->exists()) {
-        //     return response()->json([
-        //         'message' => 'The email has already been taken.', //رسال الخطأاذا كان موجود 
-        //     ], 422);
-        // }
+    
         
 
         // حفظ المستخدم في قاعدة البيانات
@@ -48,10 +42,7 @@ class UsersController extends Controller
 
         return redirect('dashboard');
 
-            //  return response()->json([
-            //     'message' => 'User registered successfully',
-            //     "user" => $user,
-            // ], 201);
+          
      }
 
      public function login(Request $request)
@@ -67,20 +58,6 @@ class UsersController extends Controller
         return redirect()->route('dashboard');
     }
 
-    //   public function login(Request $request)
-    // {
-    //     $data = $request->validate([
-    //         'email' => 'required|email',
-    //         'password' => 'required'
-    //     ]);
-        
-    //     if (Auth::attempt($data)) {
-    //         return redirect('dashboard');
-    //     }else{
-    //         return redirect('regastr');
-    //     }
-
-    //     return back()->withErrors(['message' => 'Invalid credentials']);
     // }
         public function login_view()
     {
@@ -95,9 +72,9 @@ public function logout(Request $request)
 
     return redirect('/login'); // إعادة التوجيه لصفحة تسجيل الدخول
 }
-// public function logout_view(){
-//     return view('settings');
-// }
+public function logout_view(){
+    return view('settings');
+}
 
 
 
@@ -120,16 +97,16 @@ public function logout(Request $request)
     return view("dashboard", compact('user', 'greeting'));
 }
 
-public function storeTime(Request $request)
-{
-    $hour = $request->hour;
+// public function storeTime(Request $request)
+// {
+//     $hour = $request->hour;
 
-    // تحديد التحية
-    $greeting = $hour < 12 ? 'صباح الخير' : 'مساء الخير';
+//     // تحديد التحية
+//     $greeting = $hour < 12 ? "good morning" : "good evening";
 
-    // تخزينها في الـ session
-    session(['greeting' => $greeting]);
-}
+//     // تخزينها في الـ session
+//     session(['greeting' => $greeting]);
+// }
 
 
 
