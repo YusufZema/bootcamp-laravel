@@ -39,7 +39,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="active d-flex align-center fs-14 c-black rad-6 p-10" href="{{ route('profile.show') }}">
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="{{ route('profile.show') }}">
                         <i class="fa-regular fa-user fa-fw"></i>
                         <span>الملف الشخصي</span>
                     </a>
@@ -51,7 +51,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="{{ route('friends.index') }}">
+                    <a class="active d-flex align-center fs-14 c-black rad-6 p-10" href="{{ route('friends.index') }}">
                         <i class="fa-regular fa-circle-user fa-fw"></i>
                         <span>الأصدقاء</span>
                     </a>

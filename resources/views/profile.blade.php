@@ -112,7 +112,7 @@
                                 </div>
                                 <div class="field">
                                     <label>الهاتف</label>
-                                   <div>{{ $user->phons }} </div>
+                                   <div>{{ $user->phone }} </div>
                                 </div>
 
                                 <div class="field">
