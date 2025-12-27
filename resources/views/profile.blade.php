@@ -5,57 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>profile</title>
 
-          <link rel="stylesheet" href="{{ asset('css/freomwrok.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">    
-        <link rel="stylesheet" href="{{ asset('css/Profile.css') }}">  
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="{{ asset('css/freomwrok.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">    
+    <link rel="stylesheet" href="{{ asset('css/Profile.css') }}">  
 </head>
 <body>
     <div class="page  d-flex">
-    <div class="sidebar p-relative p-20 bg-white">
-         <div class= "box_hedars ">
-            <img class="hide-mobile w-100" src="logoH.jpg" alt="" />
-            <h3 class="text text-c mt-0 p-relative">Hyrmas</h3>
-        </div>
+      <div class="sidebar p-relative p-20 bg-white">
+            <div class="box_hedars">
+                <img class="hide-mobile" src="{{ asset('logoH.jpg') }}" alt="شعار هرماس" />
+                <h3 class="text text-c mt-0 p-relative">هرماس</h3>
+            </div>
             <ul>
                 <li>
-                <a class=" d-flex align-center fs-14 c-black rad-6 p-10" href="dashboard">
-                    <i class="fa-regular fa-chart-bar fa-fw"></i>
-                    <span>Dashboard</span>
-                </a>
+                    <a class=" d-flex align-center fs-14 c-black rad-6 p-10" href="{{ route('dashboard') }}">
+                        <i class="fa-regular fa-chart-bar fa-fw"></i>
+                        <span>لوحة التحكم</span>
+                    </a>
                 </li>
                 <li>
-                 <li>
-                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="tasks">
-                    <i class="fa-solid fa-gear fa-fw"></i>
-                    <span>Tasks</span>
-                </a>
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="{{ route('tasks.index') }}">
+                        <i class="fa-solid fa-list-check fa-fw"></i>
+                        <span>المهام</span>
+                    </a>
                 </li>
                 <li>
-                <a class="active d-flex align-center fs-14 c-black rad-6 p-10" href="profile">
-                    <i class="fa-regular fa-user fa-fw"></i>
-                    <span>Profile</span>
-                </a>
+                    <a class="active d-flex align-center fs-14 c-black rad-6 p-10" href="{{ route('profile.show') }}">
+                        <i class="fa-regular fa-user fa-fw"></i>
+                        <span>الملف الشخصي</span>
+                    </a>
                 </li>
                 <li>
-                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="courses">
-                    <i class="fa-solid fa-graduation-cap fa-fw"></i>
-                    <span>Courses</span>
-                </a>
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="{{ route('courses.index') }}">
+                        <i class="fa-solid fa-graduation-cap fa-fw"></i>
+                        <span>الدورات</span>
+                    </a>
                 </li>
                 <li>
-                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="friends">
-                    <i class="fa-regular fa-circle-user fa-fw"></i>
-                    <span>Friends</span>
-                </a>
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="{{ route('friends.index') }}">
+                        <i class="fa-regular fa-circle-user fa-fw"></i>
+                        <span>الأصدقاء</span>
+                    </a>
                 </li>
                 <li>
-                <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="logout">
-                    <i class="fa-regular fa-circle-user fa-fw"></i>
-                    <span>Settings</span>
-                </a>
-                
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="{{ route('logout.view') }}">
+                        <i class="fa-solid fa-gear fa-fw"></i>
+                        <span>الإعدادات</span>
+                    </a>
+                </li>
             </ul>
-    </div>
+        </div>
     <div class="content w-full"> 
     <!-- Start Head -->
     <div class="head bg-white p-15 between-flex">
@@ -68,7 +75,7 @@
                 <i class="fa-solid fa-pencil"></i>
             </span>
             <img src="../img/cat-family-job-board.svg" alt="" />
-             <img class="hide-mobile w-100" src="logoH.jpg" alt="" />
+             <!-- <img class="hide-mobile w-100" src="logoH.jpg" alt="" /> -->
 
         </div>
         </div>
@@ -86,7 +93,7 @@
                         </div>
 
                         <footer>
-                            <time datetime="2025-10-03">آخر تحديث: 3 أكتوبر 2025</time>
+                            <time datetime="2027-7-13">آخر تحديث:2027-7-13</time>
                         </footer>
                     </aside>
 
