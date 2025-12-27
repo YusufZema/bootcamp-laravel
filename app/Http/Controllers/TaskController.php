@@ -22,7 +22,7 @@ class TaskController extends Controller
 
         auth()->user()->tasks()->create($request->all());
 
-        return redirect()->back()->with('message', 'Task created successfully!');
+        return redirect()->back()->with('message', 'تم إضافة المهمة بنجاح!');
     }
 
     public function update(Tasks $task)

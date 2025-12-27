@@ -69,14 +69,14 @@
                         <i class="fa-solid fa-bell"></i>
                     </span>
                     <img src="{{ asset('img/cat-family-job-board.svg') }}" alt="صورة المستخدم" />
-                    <img class="hide-mobile" src="{{ asset('logoH.jpg') }}" alt="شعار" />
+                    <!-- <img class="hide-mobile" src="{{ asset('logoH.jpg') }}" alt="شعار" /> -->
                 </div>
             </div>
             <!-- End Head -->
 
             <h1 class="p-relative">لوحة التحكم {{ $greeting }}</h1>
             
-            <div class="wrapper d-grid gap-20">
+            <div class="wrapper d-grid gap-10">
                 <!-- Welcome Card -->
                 <div class="welcome bg-white rad-10 txt-c-mobile block-mobile">
                     <div class="intro p-20 d-flex space-between bg-eee">
