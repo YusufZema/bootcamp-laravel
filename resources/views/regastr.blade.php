@@ -17,7 +17,6 @@
             @csrf
 
             <h2>إنشاء حساب جديد</h2>
-
             @if ($errors->has('regastr_error'))
                 <p class="error">{{ $errors->first('regastr_error') }}</p>
             @endif
@@ -70,19 +69,19 @@
             </div>
 
             <div class="input-group">
-                <label for="phons">رقم الهاتف:</label>
+                <label for="phone">رقم الهاتف:</label>
                 <div class="input-wrapper">
                     <input 
                         type="text" 
-                        id="phons" 
-                        name="phons" 
+                        id="phone" 
+                        name="phone" 
                         placeholder="05xxxxxxxx" 
-                        value="{{ old('phons') }}"
+                        value="{{ old('phone') }}"
                         required
                         autocomplete="tel"
                     >
                 </div>
-                @error('phons') <div class="error">{{ $message }}</div> @enderror
+                @error('phone') <div class="error">{{ $message }}</div> @enderror
             </div>
 
             <div class="input-group">

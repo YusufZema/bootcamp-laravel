@@ -19,7 +19,7 @@ class UsersController extends Controller
         // هنا يمكنك إضافة منطق التسجيل للمستخدم
         $vdata = $request->validate([
             'name' => 'required|string|max:255',
-            'phons' => 'required|string|max:15',
+            'phone' => 'required|string|max:15|min:10',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8',
             "address" => 'required|string|max:255',
@@ -32,7 +32,7 @@ class UsersController extends Controller
         // حفظ المستخدم في قاعدة البيانات
         $user = User::create([
             'name' => $vdata['name'],
-            'phons' => $vdata['phons'],
+            'phone' => $vdata['phone'],
             'email' => $vdata['email'],
             'password' => bcrypt($vdata['password']),
             'address' => $vdata['address'],
