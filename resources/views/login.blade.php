@@ -52,7 +52,7 @@
                 <p class="error">{{ $errors->first('login_error') }}</p>
             @endif
 
-            <a href="regastr">إنشاء حساب جديد</a>
+            <a href="regastr"> ليس ليدي حساب   </a>
         </form>
     </div>
 </body>
