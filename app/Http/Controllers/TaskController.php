@@ -36,9 +36,4 @@ class TaskController extends Controller
         $task->delete();
         return redirect()->back();
     }
-    
-    public function edit(Tasks $task)
-{
-    return view('edit', compact('task'));
-}
 }

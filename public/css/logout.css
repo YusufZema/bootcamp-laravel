@@ -37,19 +37,3 @@ body {
     font-weight: bold;
     cursor: pointer;
 }
-.btn {
-    width: 100%;
-    padding-top: 12px;
-    border: none;
-    margin-top: 20px ;
-    border-radius: 12px;
-    background: #4e5fbe;
-    color: #ffffff;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-}
-.alo{
-    text-decoration: none;
-    color: #f3f4f6;
-}
