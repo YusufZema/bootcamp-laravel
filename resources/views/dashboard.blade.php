@@ -16,7 +16,7 @@
     <div class="page d-flex">
         <div class="sidebar p-relative p-20 bg-white">
             <div class="box_hedars">
-                <img class="hide-mobile" src="{{ asset('logoH.jpg') }}" alt="شعار هرماس" />
+                <img src="{{ asset('storage/' . $user->image) }}" width="150">
                 <h3 class="text text-c mt-0 p-relative">هرماس</h3>
             </div>
             <ul>
