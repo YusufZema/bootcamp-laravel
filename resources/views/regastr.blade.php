@@ -13,7 +13,7 @@
 
 <body>
     <div class="register-container">
-        <form action="{{ url('regastr') }}" method="POST">
+     <form action="{{ url('regastr') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             <h2>إنشاء حساب جديد</h2>
@@ -83,6 +83,20 @@
                 </div>
                 @error('phone') <div class="error">{{ $message }}</div> @enderror
             </div>
+
+            <div class="image">
+                <label for="image">الصورة:</label>
+
+                <div class="input-wrapper">
+                    <input type="file" id="image" name="image" accept="image/*" required
+                    >
+                </div>
+
+                @error('image')
+                    <div class="error">{{ $message }}</div>
+                @enderror
+            </div>
+
 
             <div class="input-group">
                 <label for="address">العنوان:</label>

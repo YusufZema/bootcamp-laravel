@@ -97,11 +97,11 @@ body::after {
     position: relative;
     z-index: 1;
     width: 100%;
-    max-width: 500px;
+    max-width: 550px;
     width: 100%;
     max-width: 550px;
     width: 70%;
-    height: 70%;
+    height: 99vh;
     padding: 15px;
 }
 
