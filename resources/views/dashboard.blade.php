@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{ asset('css/freomwrok.css') }}">
     <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
 </head>
+
 <body>
     <div class="page d-flex">
         <div class="sidebar p-relative p-20 bg-white">
