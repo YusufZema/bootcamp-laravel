@@ -103,32 +103,6 @@ public function logout_view(){
     return view("dashboard", compact('user', 'greeting'));
 }
 
-// public function storeTime(Request $request)
-// {
-//     $hour = $request->hour;
-
-//     // تحديد التحية
-//     $greeting = $hour < 12 ? "good morning" : "good evening";
-
-//     // تخزينها في الـ session
-//     session(['greeting' => $greeting]);
-// }
-
-
-
-//    public function dashboard(){
-
-
-//        $user = auth()->user();   
-
-//     $hour = Carbon::now()->hour;
-//     $greeting = $hour < 12 ? 'صباح الخير' : 'مساء الخير';
-
-//     return view("dashboard", compact('user', 'greeting'));
-
-
-    // $user = auth()->user();   
-    // return view("dashboard", compact('user'));
 }
 
         
