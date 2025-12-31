@@ -23,28 +23,22 @@ class UsersController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8',
             "address" => 'required|string|max:255',
-            'image' => 'required|image|mimes:jpg,png,jpeg|max:2048',
+            
         ]);
 
     
         
 
-
+        // حفظ المستخدم في قاعدة البيانات
         $user = User::create([
             'name' => $vdata['name'],
             'phone' => $vdata['phone'],
             'email' => $vdata['email'],
             'password' => bcrypt($vdata['password']),
             'address' => $vdata['address'],
-            'image' => $imagePath, 
         ]);
-
-        $imagePath = null;
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('users', 'public');
-        }
-
-        Auth::login($user); 
+        
+        Auth::login($user); //  تسجيل دخول بعد التسجيل مباشرة
 
         return redirect('dashboard');
 

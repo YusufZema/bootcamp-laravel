@@ -65,7 +65,7 @@
         </div>
 
     <div class="logout-box">
-        <h2>  هلا انت متأكد من انك تريد الخرواج ؟</h2>
+        <h2>Are you sure you want to logout?</h2>
 
         <form action="{{ route('logout') }}" method="POST">
             @csrf
@@ -73,9 +73,6 @@
                 Logout
             </button>
         </form>
-        <button class="btn">
-                    <a class= "alo" href="{{ route('dashboard') }}"> الغاْ </a>
-        </button>
     </div>
 
 </body>

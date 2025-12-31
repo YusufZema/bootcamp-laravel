@@ -82,71 +82,66 @@
             </div>
             <!-- End Head -->
 <!-- جدول التاسكات -->
+
 <div class="table-wrapper">
-    <h1>المهام:</h1>
-
+    <a href="#">
+        <h1>المهام:</h1>
+    </a>
     <table class="custom-table">
-        <thead>
-            <tr>
-                <th>الحالة</th>
-                <th>عنوان المهمة</th>
-                <th>الوصف</th>
-                <th style="text-align:center">تحديث الحالة</th>
-                <th style="text-align:center">تعديل</th>
-                <th style="text-align:center">حذف</th>
-            </tr>
-        </thead>
 
-        <tbody>
-        @foreach($tasks as $task)
-            <tr>
-                <!-- الحالة -->
-                <td>
-                    @if($task->completed)
-                        <span class="status done">✔ مكتمل</span>
-                    @else
-                        <span class="status pending">❌ لم يكتمل</span>
-                    @endif
-                </td>
+     <thead>
+    <tr>
+        <th>الحاله </th>
+        <th>عنوان المهمة</th>
+        <th>الوصف</th>
+        <th style="text-align:center">الإجراءات</th>
+        <th style="text-align:center">حذف</th>
+    </tr>
+</thead>
 
-                <!-- العنوان -->
-                <td>{{ $task->title }}</td>
+<tbody>
+@foreach($tasks as $task)
+<tr>
 
-                <!-- الوصف -->
-                <td class="text-truncate">{{ $task->description }}</td>
+    <!-- Status -->
+    <td>
+        @if($task->completed)
+            <span class="status done">✔ مكتمل</span>
+        @else
+            <span class="status pending">❌ لم يكتمل</span>
+        @endif
+    </td>
 
-                <!-- تحديث الحالة -->
-                <td style="text-align:center">
-                    <form action="{{ route('tasks.update', $task) }}" method="POST">
-                        @csrf
-                        @method('PATCH')
-                        <button class="btn {{ $task->completed ? 'btn-success' : '' }}">
-                            {{ $task->completed ? 'المهمة مكتملة' : 'المهمة لم تكتمل' }}
-                        </button>
-                    </form>
-                </td>
+    <!-- Title -->
+    <td>{{ $task->title }}</td>
 
-                <!-- تعديل -->
-                <td style="text-align:center">
-                    <a href="{{ route('tasks.edit', $task) }}" class="btn btn-warning">
-                        تعديل
-                    </a>
-                </td>
+    <!-- Description -->
+    <td class="text-truncate">{{ $task->description }}</td>
 
-                <!-- حذف -->
-                <td style="text-align:center">
-                    <form action="{{ route('tasks.destroy', $task) }}" method="POST"
-                          onsubmit="return confirm('هل أنت متأكد من الحذف؟')">
-                        @csrf
-                        @method('DELETE')
-                        <button class="btn btn-danger">حذف</button>
-                    </form>
-                </td>
-            </tr>
-        @endforeach
-        </tbody>
-    </table>
-</div>
+    <!-- Update -->
+    <td style="text-align:center">
+        <form action="{{ route('tasks.update', $task) }}" method="POST">
+            @csrf
+            @method('PATCH')
+            <button class="btn {{ $task->completed ? 'btn-success' : '' }}">
+                {{ $task->completed ? 'المهام مكتملة' : 'المهام لم تكتمل' }}
+            </button>
+        </form>
+    </td>
+
+    <!-- Delete -->
+    <td style="text-align:center">
+        <form action="{{ route('tasks.destroy', $task) }}" method="POST"
+              onsubmit="return confirm('Are you sure you want to delete this task?')">
+            @csrf
+            @method('DELETE')
+            <button class="btn btn-danger">حذف</button>
+        </form>
+    </td>
+
+</tr>
+@endforeach
+</tbody>
 
 
 <!-- جدول التاسكات -->
