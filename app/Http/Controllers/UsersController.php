@@ -14,35 +14,33 @@ class UsersController extends Controller
     {
         return view('regastr');
     }
-     public function regastr(Request $request)
-    {
-        // هنا يمكنك إضافة منطق التسجيل للمستخدم
-        $vdata = $request->validate([
-            'name' => 'required|string|max:255',
-            'phone' => 'required|string|max:15|min:10',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8',
-            "address" => 'required|string|max:255',
-            'image' => 'required|image|mimes:jpg,png,jpeg|max:2048',
-        ]);
+   public function regastr(Request $request)
+{
+    // تحقق من البيانات
+    $vdata = $request->validate([
+        'name' => 'required|string|max:255',
+        'phone' => 'required|string|max:15|min:10',
+        'email' => 'required|string|email|max:255|unique:users',
+        'password' => 'required|string|min:8',
+        'address' => 'required|string|max:255',
+        'image' => 'required|image|mimes:jpg,png,jpeg|max:2048',
+    ]);
 
-    
-        
+    // رفع الصورة أولًا
+    $imagePath = null;
+    if ($request->hasFile('image')) {
+        $imagePath = $request->file('image')->store('users', 'public');
+    }
 
-
-        $user = User::create([
-            'name' => $vdata['name'],
-            'phone' => $vdata['phone'],
-            'email' => $vdata['email'],
-            'password' => bcrypt($vdata['password']),
-            'address' => $vdata['address'],
-            'image' => $imagePath, 
-        ]);
-
-        $imagePath = null;
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('users', 'public');
-        }
+    // إنشاء المستخدم بعد رفع الصورة
+    $user = User::create([
+        'name' => $vdata['name'],
+        'phone' => $vdata['phone'],
+        'email' => $vdata['email'],
+        'password' => bcrypt($vdata['password']),
+        'address' => $vdata['address'],
+        'image' => $imagePath, 
+    ]);
 
         Auth::login($user); 
 
@@ -81,18 +79,6 @@ public function logout(Request $request)
 public function logout_view(){
     return view('Settings');
 }
-
-
-
-
-
-
-
-
-
-
-
-
    public function dashboard()
 {
     $user = auth()->user();
