@@ -88,7 +88,7 @@
                         <p class="fs-13 c-grey">دورة للمبتدئين لتعلم أساسيات بناء صفحات الويب.</p>
                         <div class="planss mt-10 d-flex space-between align-center">
                             <div class="fw-bold">مجانية</div>
-                            <a href="plans.html">Plans</a> 
+                            <a href="{{ route('plans.index') }}">Plans</a>
                         </div>
                     </article>
 
@@ -98,7 +98,7 @@
                         <p class="fs-13 c-grey">تعلم كيفية برمجة التفاعل في صفحات الويب.</p>
                         <div class="planss mt-10 d-flex space-between align-center">
                             <div class="pres fw-bold">199 SAR</div>
-                            <a href="plans.html" class="Plans">Plans</a> 
+                            <a href="{{ route('plans.index') }}" class="Plans">Plans</a>
                         </div>
                     </article>
                     <article class="card p-15" data-price="199">
@@ -107,7 +107,7 @@
                         <p class="fs-13 c-grey">تعلم كيفية برمجة التفاعل في صفحات الويب.</p>
                         <div class="planss mt-10 d-flex space-between align-center">
                             <div class="pres fw-bold">199 SAR</div>
-                            <a href="plans.html">Plans</a> 
+                            <a href="{{ route('plans.index') }}">Plans</a>
                         </div>
                     </article>
                     <article class="card p-15" data-price="199">
@@ -116,7 +116,7 @@
                         <p class="fs-13 c-grey">تعلم كيفية برمجة التفاعل في صفحات الويب.</p>
                         <div class="planss mt-10 d-flex space-between align-center">
                             <div class="pres fw-bold">199 SAR</div>
-                            <a href="plans.html">Plans</a> 
+                            <a href="{{ route('plans.index') }}">Plans</a>
                         </div>
                     </article>
                     <article class="card p-15" data-price="199">
@@ -125,7 +125,7 @@
                         <p class="fs-13 c-grey">تعلم كيفية برمجة التفاعل في صفحات الويب.</p>
                         <div class="planss mt-10 d-flex space-between align-center">
                             <div class="pres fw-bold">199 SAR</div>
-                            <a href="plans.html">Plans</a> 
+                            <a href="{{ route('plans.index') }}">Plans</a>
                         </div>
                     </article>
 
@@ -135,7 +135,7 @@
                         <p class="fs-13 c-grey">أساسيات تصميم واجهات مستخدم جذابة وسهلة الاستخدام.</p>
                         <div class="planss mt-10 d-flex space-between align-center">
                             <div class="pres fw-bold">450 SAR</div>
-                            <a href="plans.html">Plans</a>
+                            <a href="{{ route('plans.index') }}">Plans</a>
                         </div>
                     </article>
                 </div>

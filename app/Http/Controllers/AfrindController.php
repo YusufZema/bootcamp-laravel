@@ -20,23 +20,23 @@ class AfrindController extends Controller
     }
 
     // إضافة صديق
-    public function addFriend($id)
+    public function addFriend(User $user)
     {
-        $user = Auth::user();
+        $currentUser = Auth::user();
 
         // منع إضافة نفسك
-        if ($user->id == $id) {
+        if ($currentUser->id === $user->id) {
             return back()->with('error', 'لا يمكنك إضافة نفسك');
         }
 
         // منع التكرار
-        if ($user->friends()->where('friend_id', $id)->exists()) {
+        if ($currentUser->friends()->where('friend_id', $user->id)->exists()) {
             return back()->with('error', 'هذا المستخدم مضاف بالفعل');
         }
 
         // إضافة ثنائية (صداقة حقيقية)
-        $user->friends()->attach($id);
-        User::find($id)->friends()->attach($user->id);
+        $currentUser->friends()->syncWithoutDetaching([$user->id]);
+        $user->friends()->syncWithoutDetaching([$currentUser->id]);
 
         return back()->with('success', 'تمت إضافة الصديق بنجاح');
     }

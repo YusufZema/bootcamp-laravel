@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="{{ asset('css/freomwrok.css') }}">
         <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">    
         <link rel="stylesheet" href="{{ asset('css/freinds.css') }}">    
+        <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
     <div class="page  d-flex">
@@ -129,9 +130,12 @@
         <hr class="my-14">
 
         <!-- إضافة أصدقاء -->
-        <h2 class="mb-10 text-center text-2xl font-bold text-gray-800">
-            أضف أصدقاء جدد
-        </h2>
+        <div class="mb-10 flex flex-col items-center justify-between gap-4 sm:flex-row">
+            <h2 class="text-2xl font-bold text-gray-800">أضف أصدقاء جدد</h2>
+            <button type="button" id="open-friends-modal" class="rounded-xl bg-indigo-600 px-5 py-3 font-semibold text-white shadow hover:bg-indigo-700">
+                إضافة أصدقاء جدد
+            </button>
+        </div>
 
         <ul class="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             @foreach($otherUsers as $other)
@@ -150,10 +154,10 @@
                 </p>
 
                 @if(!$friends->contains($other->id))
-                    <a href="{{ route('friends.add', $other->id) }}"
-                       class="inline-block rounded-xl bg-indigo-600 px-5 py-2 text-sm font-semibold text-white hover:bg-indigo-700 transition">
-                        ➕ إضافة صديق
-                    </a>
+                    <form action="{{ route('friends.add', $other) }}" method="POST">
+                        @csrf
+                        <button type="submit" class="inline-block rounded-xl bg-indigo-600 px-5 py-2 text-sm font-semibold text-white hover:bg-indigo-700 transition">➕ إضافة صديق</button>
+                    </form>
                 @else
                     <span class="inline-block rounded-xl bg-green-100 px-5 py-2 text-sm font-semibold text-green-600">
                         ✔ مضاف بالفعل
@@ -169,9 +173,50 @@
 
 
         </div>
+
+        <div id="friends-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/60 px-4" role="dialog" aria-modal="true" aria-labelledby="friends-modal-title">
+            <div class="w-full max-w-lg rounded-2xl bg-white p-6 shadow-2xl">
+                <div class="flex items-center justify-between">
+                    <h2 id="friends-modal-title" class="text-xl font-bold text-slate-900">Find people</h2>
+                    <button type="button" id="close-friends-modal" class="text-2xl text-slate-400 hover:text-slate-700" aria-label="Close">&times;</button>
+                </div>
+                <input id="friend-search" type="search" placeholder="Search by name or email" class="mt-5 w-full rounded-xl border border-slate-300 p-3 focus:border-indigo-500 focus:ring-indigo-500">
+                <div class="mt-4 max-h-80 space-y-3 overflow-y-auto">
+                    @forelse($otherUsers as $other)
+                        <div class="friend-result flex items-center justify-between rounded-xl border border-slate-200 p-3" data-search="{{ strtolower($other->name . ' ' . $other->email) }}">
+                            <div>
+                                <p class="font-semibold text-slate-900">{{ $other->name }}</p>
+                                <p class="text-sm text-slate-500">{{ $other->email }}</p>
+                            </div>
+                            @if(!$friends->contains($other->id))
+                                <form action="{{ route('friends.add', $other) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="rounded-lg bg-indigo-600 px-3 py-2 text-sm font-semibold text-white hover:bg-indigo-700">Add</button>
+                                </form>
+                            @else
+                                <span class="text-sm font-semibold text-emerald-600">Added</span>
+                            @endif
+                        </div>
+                    @empty
+                        <p class="py-6 text-center text-slate-500">No other users found.</p>
+                    @endforelse
+                </div>
+            </div>
+        </div>
     </div>
     </div>
 </body>
+<script>
+    const friendsModal = document.getElementById('friends-modal');
+    const closeFriendsModal = () => { friendsModal.classList.add('hidden'); friendsModal.classList.remove('flex'); };
+    document.getElementById('open-friends-modal').addEventListener('click', () => { friendsModal.classList.remove('hidden'); friendsModal.classList.add('flex'); });
+    document.getElementById('close-friends-modal').addEventListener('click', closeFriendsModal);
+    friendsModal.addEventListener('click', (event) => { if (event.target === friendsModal) closeFriendsModal(); });
+    document.getElementById('friend-search').addEventListener('input', (event) => {
+        const query = event.target.value.toLowerCase().trim();
+        document.querySelectorAll('.friend-result').forEach((item) => item.classList.toggle('hidden', !item.dataset.search.includes(query)));
+    });
+</script>
 <!-- <body>
     <div class="bg-white py-24 sm:py-32">
   <div class="mx-auto grid max-w-7xl gap-20 px-6 lg:px-8 xl:grid-cols-3">
